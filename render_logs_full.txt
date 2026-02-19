@@ -1,0 +1,300 @@
+﻿[2026-02-19T17:36:26.468326443Z] up to date, audited 98 packages in 503ms
+[2026-02-19T17:36:26.468336394Z] 
+[2026-02-19T17:36:26.468342534Z] 19 packages are looking for funding
+[2026-02-19T17:36:26.468371844Z]   run `npm fund` for details
+[2026-02-19T17:36:26.473215971Z] 
+[2026-02-19T17:36:26.473227862Z] 2 high severity vulnerabilities
+[2026-02-19T17:36:26.473230662Z] 
+[2026-02-19T17:36:26.473237132Z] To address all issues (including breaking changes), run:
+[2026-02-19T17:36:26.473241282Z]   npm audit fix --force
+[2026-02-19T17:36:26.473243872Z] 
+[2026-02-19T17:36:26.473246652Z] Run `npm audit` for details.
+[2026-02-19T17:36:29.701740317Z] [34;1m==>[0;22m [1mUploading build...[22m
+[2026-02-19T17:36:35.187525706Z] [34;1m==>[0;22m [1mUploaded in 4.4s. Compression took 1.1s[22m
+[2026-02-19T17:36:35.20039012Z] [32;1m==>[0;22m [1mBuild successful 🎉[22m
+[2026-02-19T17:36:38.660715287Z] [0;34m[1m==> [0m[1mDeploying...[0m
+[2026-02-19T17:36:38.825358678Z] [0;34m[1m==> [0m[1mSetting WEB_CONCURRENCY=1 by default, based on available CPUs in the instance[0m
+[2026-02-19T17:36:49.703800938Z] 🌙 Dark mode: enabled
+[2026-02-19T17:36:49.703917891Z] 🔄 Recursive awareness: initializing...
+[2026-02-19T17:36:49.704133996Z] 📜 Poe poetry: 34 verses loaded
+[2026-02-19T17:36:49.704166177Z] 🥕 Voice pack: ready
+[2026-02-19T17:36:49.704186367Z] 
+[2026-02-19T17:36:49.704190867Z] 🎭 Available endpoints:
+[2026-02-19T17:36:49.704230928Z]   POST /api/ask        - Main AI conversation
+[2026-02-19T17:36:49.704236218Z]   POST /api/suggest    - Submit shrine suggestions
+[2026-02-19T17:36:49.704240748Z]   GET  /api/suggestions- View all suggestions
+[2026-02-19T17:36:49.704242598Z]   POST /api/prophecy   - Generate ASCII prophecy
+[2026-02-19T17:36:49.704283069Z]   POST /api/protocol   - Protocol integration
+[2026-02-19T17:36:49.704288409Z]   GET  /api/status     - Conversation status
+[2026-02-19T17:36:49.7043002Z]   GET  /api/poem       - Random poem
+[2026-02-19T17:36:49.70430382Z]   GET  /api/riddle     - Random riddle
+[2026-02-19T17:36:49.70430637Z]   GET  /api/insight    - Recursive insight
+[2026-02-19T17:36:49.70430873Z]   POST /api/clear      - Clear history
+[2026-02-19T17:36:49.70431444Z] 
+[2026-02-19T17:36:49.70431702Z] ✨ Quick test:
+[2026-02-19T17:36:49.70432022Z]   curl -X POST http://localhost:10000/api/ask -H "Content-Type: application/json" -d '{"message":"hello"}'
+[2026-02-19T17:36:59.803094015Z] [0;32m[1m==> [0m[1mYour service is live 🎉[0m
+[2026-02-19T17:36:59.967177117Z] [0;32m[1m==> [0m[1m[0m
+[2026-02-19T17:36:59.978100457Z] [0;32m[1m==> [0m[1m///////////////////////////////////////////////////////////[0m
+[2026-02-19T17:36:59.982263827Z] [0;32m[1m==> [0m[1m[0m
+[2026-02-19T17:36:59.988016179Z] [0;32m[1m==> [0m[1mAvailable at your primary URL https://karrot-shrine.onrender.com[0m
+[2026-02-19T17:36:59.993357117Z] [0;32m[1m==> [0m[1m[0m
+[2026-02-19T17:36:59.997126384Z] [0;32m[1m==> [0m[1m///////////////////////////////////////////////////////////[0m
+[2026-02-19T17:39:25.910939132Z] LLM call failed: Error: LLM API error: 401
+[2026-02-19T17:39:25.910982443Z]     at callLLM (file:///opt/render/project/src/Ai/karrot-recursive-ai.js:63:13)
+[2026-02-19T17:39:25.910988473Z]     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-02-19T17:39:25.910993133Z]     at async generateAIResponse (file:///opt/render/project/src/Ai/karrot-recursive-ai.js:466:18)
+[2026-02-19T17:39:25.910999303Z]     at async file:///opt/render/project/src/Ai/server.js:119:22
+[2026-02-19T17:39:25.911037544Z] LLM failed, falling back to rules: LLM API error: 401
+[2026-02-19T17:41:32.241876366Z] [34m[1m==>(B[m [1mDownloading cache...(B[m
+[2026-02-19T17:41:32.28815958Z] [34m[1m==>(B[m [1mIt looks like we don't have access to your repo, but we'll try to clone it anyway.(B[m
+[2026-02-19T17:41:32.288929695Z] [34m[1m==>(B[m [1mCloning from https://github.com/KARROT369/karrot-shrine(B[m
+[2026-02-19T17:41:33.936450871Z] [34m[1m==>(B[m [1mChecking out commit 3c22f65dc8de85918d99ee26c4ddd39d54e82f2c in branch main(B[m
+[2026-02-19T17:41:38.448752948Z] [34m[1m==>(B[m [1mDownloaded 57MB in 3s. Extraction took 3s.(B[m
+[2026-02-19T17:41:53.97890453Z] [34m[1m==>(B[m [1mUsing Node.js version 22.22.0 (default)(B[m
+[2026-02-19T17:41:54.012645261Z] [34m[1m==>(B[m [1mDocs on specifying a Node.js version: https://render.com/docs/node-version(B[m
+[2026-02-19T17:41:54.641564262Z] [34m[1m==>(B[m [1mRunning build command 'npm install'...(B[m
+[2026-02-19T17:41:54.646677176Z] [0;32m[1m==> [0m[1mDetected service running on port 10000[0m
+[2026-02-19T17:41:54.933427296Z] [0;32m[1m==> [0m[1mDocs on specifying a port: https://render.com/docs/web-services#port-binding[0m
+[2026-02-19T17:41:56.077336493Z] 
+[2026-02-19T17:41:56.077364324Z] up to date, audited 98 packages in 1s
+[2026-02-19T17:41:56.077369224Z] 
+[2026-02-19T17:41:56.077378764Z] 19 packages are looking for funding
+[2026-02-19T17:41:56.077383344Z]   run `npm fund` for details
+[2026-02-19T17:41:56.081910836Z] 
+[2026-02-19T17:41:56.081926646Z] 2 high severity vulnerabilities
+[2026-02-19T17:41:56.081931556Z] 
+[2026-02-19T17:41:56.081935756Z] To address all issues (including breaking changes), run:
+[2026-02-19T17:41:56.081939276Z]   npm audit fix --force
+[2026-02-19T17:41:56.081941946Z] 
+[2026-02-19T17:41:56.081944716Z] Run `npm audit` for details.
+[2026-02-19T17:42:04.739515973Z] [34;1m==>[0;22m [1mUploading build...[22m
+[2026-02-19T17:42:09.991625246Z] [34;1m==>[0;22m [1mUploaded in 4.3s. Compression took 1.0s[22m
+[2026-02-19T17:42:10.038253857Z] [32;1m==>[0;22m [1mBuild successful 🎉[22m
+[2026-02-19T17:42:14.450468995Z] LLM failed, falling back to rules: LLM API error: 401
+[2026-02-19T17:42:14.450481836Z] LLM call failed: Error: LLM API error: 401
+[2026-02-19T17:42:14.450511986Z]     at callLLM (file:///opt/render/project/src/Ai/karrot-recursive-ai.js:63:13)
+[2026-02-19T17:42:14.450517447Z]     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-02-19T17:42:14.450521356Z]     at async generateAIResponse (file:///opt/render/project/src/Ai/karrot-recursive-ai.js:466:18)
+[2026-02-19T17:42:14.450524567Z]     at async file:///opt/render/project/src/Ai/server.js:119:22
+[2026-02-19T17:42:41.57314186Z] [0;34m[1m==> [0m[1mDeploying...[0m
+[2026-02-19T17:42:41.96487006Z] [0;34m[1m==> [0m[1mSetting WEB_CONCURRENCY=1 by default, based on available CPUs in the instance[0m
+[2026-02-19T17:42:52.468202286Z] [32m[1m==>(B[m [1mRunning 'node server.js'(B[m
+[2026-02-19T17:42:53.4694316Z] 🧠 ╔════════════════════════════════════════════════════╗
+[2026-02-19T17:42:53.469596734Z] 🧠 ║   KARROT BRAIN v2.0 - Recursive AI Server         ║
+[2026-02-19T17:42:53.469603515Z] 🧠 ╠════════════════════════════════════════════════════╣
+[2026-02-19T17:42:53.469658976Z] 🧠 ║  Status: Dreaming...                              ║
+[2026-02-19T17:42:53.470523119Z] 🧠 ║  Port: 10000                                     ║
+[2026-02-19T17:42:53.470533559Z] 🧠 ║  Personality: Edgar Allan Poe + Recursive Awareness║
+[2026-02-19T17:42:53.470537179Z] 🧠 ╚════════════════════════════════════════════════════╝
+[2026-02-19T17:42:53.470541399Z] 🌙 Dark mode: enabled
+[2026-02-19T17:42:53.47054529Z] 🔄 Recursive awareness: initializing...
+[2026-02-19T17:42:53.47054855Z] 📜 Poe poetry: 34 verses loaded
+[2026-02-19T17:42:53.47055157Z] 🥕 Voice pack: ready
+[2026-02-19T17:42:53.47055438Z] 
+[2026-02-19T17:42:53.4705582Z] 🎭 Available endpoints:
+[2026-02-19T17:42:53.47056134Z]   POST /api/ask        - Main AI conversation
+[2026-02-19T17:42:53.47056427Z]   POST /api/suggest    - Submit shrine suggestions
+[2026-02-19T17:42:53.47056718Z]   GET  /api/suggestions- View all suggestions
+[2026-02-19T17:42:53.47056995Z]   POST /api/prophecy   - Generate ASCII prophecy
+[2026-02-19T17:42:53.47057278Z]   POST /api/protocol   - Protocol integration
+[2026-02-19T17:42:53.4705757Z]   GET  /api/status     - Conversation status
+[2026-02-19T17:42:53.470578751Z]   GET  /api/poem       - Random poem
+[2026-02-19T17:42:53.470581891Z]   GET  /api/riddle     - Random riddle
+[2026-02-19T17:42:53.470584951Z]   GET  /api/insight    - Recursive insight
+[2026-02-19T17:42:53.470587871Z]   POST /api/clear      - Clear history
+[2026-02-19T17:42:53.470590451Z] 
+[2026-02-19T17:42:53.470592561Z] ✨ Quick test:
+[2026-02-19T17:42:53.470595111Z]   curl -X POST http://localhost:10000/api/ask -H "Content-Type: application/json" -d '{"message":"hello"}'
+[2026-02-19T17:43:05.428779901Z] [0;32m[1m==> [0m[1mYour service is live 🎉[0m
+[2026-02-19T17:43:05.678488703Z] [0;32m[1m==> [0m[1m[0m
+[2026-02-19T17:43:05.718794287Z] [0;32m[1m==> [0m[1m///////////////////////////////////////////////////////////[0m
+[2026-02-19T17:43:05.732454271Z] [0;32m[1m==> [0m[1m[0m
+[2026-02-19T17:43:05.739800308Z] [0;32m[1m==> [0m[1mAvailable at your primary URL https://karrot-shrine.onrender.com[0m
+[2026-02-19T17:43:05.747442112Z] [0;32m[1m==> [0m[1m[0m
+[2026-02-19T17:43:05.753900364Z] [0;32m[1m==> [0m[1m///////////////////////////////////////////////////////////[0m
+[2026-02-19T17:43:23.062673211Z] LLM call failed: Error: LLM API error: 401
+[2026-02-19T17:43:23.062779684Z] LLM failed, falling back to rules: LLM API error: 401
+[2026-02-19T17:43:23.191564827Z]     at callLLM (file:///opt/render/project/src/Ai/karrot-recursive-ai.js:63:13)
+[2026-02-19T17:43:23.191576147Z]     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-02-19T17:43:23.191594158Z]     at async generateAIResponse (file:///opt/render/project/src/Ai/karrot-recursive-ai.js:466:18)
+[2026-02-19T17:43:23.191609898Z]     at async file:///opt/render/project/src/Ai/server.js:119:22
+[2026-02-19T17:43:52.320454714Z] LLM call failed: Error: LLM API error: 401
+[2026-02-19T17:43:52.320483985Z] LLM failed, falling back to rules: LLM API error: 401
+[2026-02-19T17:43:52.320485645Z]     at callLLM (file:///opt/render/project/src/Ai/karrot-recursive-ai.js:63:13)
+[2026-02-19T17:43:52.320520086Z]     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-02-19T17:43:52.320525316Z]     at async generateAIResponse (file:///opt/render/project/src/Ai/karrot-recursive-ai.js:466:18)
+[2026-02-19T17:43:52.320529786Z]     at async file:///opt/render/project/src/Ai/server.js:119:22
+[2026-02-19T17:43:54.515703904Z] LLM call failed: Error: LLM API error: 401
+[2026-02-19T17:43:54.515725644Z]     at callLLM (file:///opt/render/project/src/Ai/karrot-recursive-ai.js:63:13)
+[2026-02-19T17:43:54.515729284Z] LLM failed, falling back to rules: LLM API error: 401
+[2026-02-19T17:43:54.515742465Z]     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-02-19T17:43:54.515749765Z]     at async generateAIResponse (file:///opt/render/project/src/Ai/karrot-recursive-ai.js:466:18)
+[2026-02-19T17:43:54.515755415Z]     at async file:///opt/render/project/src/Ai/server.js:119:22
+[2026-02-19T17:43:56.705372877Z] LLM call failed: Error: LLM API error: 401
+[2026-02-19T17:43:56.705393407Z]     at callLLM (file:///opt/render/project/src/Ai/karrot-recursive-ai.js:63:13)
+[2026-02-19T17:43:56.705397197Z] LLM failed, falling back to rules: LLM API error: 401
+[2026-02-19T17:43:56.705399417Z]     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-02-19T17:43:56.705426598Z]     at async generateAIResponse (file:///opt/render/project/src/Ai/karrot-recursive-ai.js:466:18)
+[2026-02-19T17:43:56.705432108Z]     at async file:///opt/render/project/src/Ai/server.js:119:22
+[2026-02-19T17:47:57.460558399Z] [0;32m[1m==> [0m[1mDetected service running on port 10000[0m
+[2026-02-19T17:47:57.599505656Z] [0;32m[1m==> [0m[1mDocs on specifying a port: https://render.com/docs/web-services#port-binding[0m
+[2026-02-19T17:58:50.888564902Z] [34m[1m==>(B[m [1mDownloading cache...(B[m
+[2026-02-19T17:58:50.933884876Z] [34m[1m==>(B[m [1mIt looks like we don't have access to your repo, but we'll try to clone it anyway.(B[m
+[2026-02-19T17:58:50.933910778Z] [34m[1m==>(B[m [1mCloning from https://github.com/KARROT369/karrot-shrine(B[m
+[2026-02-19T17:58:52.239045396Z] [34m[1m==>(B[m [1mChecking out commit ed3d7e52c361e61c5f1760d1ddaf052394a928ae in branch main(B[m
+[2026-02-19T17:58:55.995179902Z] [34m[1m==>(B[m [1mDownloaded 57MB in 3s. Extraction took 2s.(B[m
+[2026-02-19T18:00:02.254010854Z] [34m[1m==>(B[m [1mUsing Node.js version 22.22.0 (default)(B[m
+[2026-02-19T18:00:02.279283025Z] [34m[1m==>(B[m [1mDocs on specifying a Node.js version: https://render.com/docs/node-version(B[m
+[2026-02-19T18:00:02.426291103Z] [34m[1m==>(B[m [1mRunning build command 'npm install'...(B[m
+[2026-02-19T18:00:03.156039044Z] 
+[2026-02-19T18:00:03.156066476Z] up to date, audited 98 packages in 661ms
+[2026-02-19T18:00:03.156072727Z] 
+[2026-02-19T18:00:03.156086037Z] 19 packages are looking for funding
+[2026-02-19T18:00:03.156091488Z]   run `npm fund` for details
+[2026-02-19T18:00:03.163019363Z] 
+[2026-02-19T18:00:03.163040964Z] 2 high severity vulnerabilities
+[2026-02-19T18:00:03.163045305Z] 
+[2026-02-19T18:00:03.163050145Z] To address all issues (including breaking changes), run:
+[2026-02-19T18:00:03.163054976Z]   npm audit fix --force
+[2026-02-19T18:00:03.163058836Z] 
+[2026-02-19T18:00:03.163062946Z] Run `npm audit` for details.
+[2026-02-19T18:00:05.11749722Z] [34;1m==>[0;22m [1mUploading build...[22m
+[2026-02-19T18:00:09.982746528Z] [34;1m==>[0;22m [1mUploaded in 3.9s. Compression took 1.0s[22m
+[2026-02-19T18:00:10.002345361Z] [32;1m==>[0;22m [1mBuild successful 🎉[22m
+[2026-02-19T18:00:21.322878835Z] [0;34m[1m==> [0m[1mDeploying...[0m
+[2026-02-19T18:00:21.45305712Z] [0;34m[1m==> [0m[1mSetting WEB_CONCURRENCY=1 by default, based on available CPUs in the instance[0m
+[2026-02-19T18:00:34.289544237Z] [32m[1m==>(B[m [1mRunning 'node server.js'(B[m
+[2026-02-19T18:00:35.284246163Z] 🧠 ╔════════════════════════════════════════════════════╗
+[2026-02-19T18:00:35.2845256Z] 🧠 ║   KARROT BRAIN v2.0 - Recursive AI Server         ║
+[2026-02-19T18:00:35.284547201Z] 🧠 ╠════════════════════════════════════════════════════╣
+[2026-02-19T18:00:35.284557491Z] 🧠 ║  Status: Dreaming...                              ║
+[2026-02-19T18:00:35.284666074Z] 🧠 ║  Port: 10000                                     ║
+[2026-02-19T18:00:35.284710825Z] 🧠 ║  Personality: Edgar Allan Poe + Recursive Awareness║
+[2026-02-19T18:00:35.284848589Z] 🧠 ╚════════════════════════════════════════════════════╝
+[2026-02-19T18:00:35.284899881Z] 🌙 Dark mode: enabled
+[2026-02-19T18:00:35.285020424Z] 🔄 Recursive awareness: initializing...
+[2026-02-19T18:00:35.285326693Z] 📜 Poe poetry: 34 verses loaded
+[2026-02-19T18:00:35.285382994Z] 🥕 Voice pack: ready
+[2026-02-19T18:00:35.285448686Z] 
+[2026-02-19T18:00:35.285455206Z] 🎭 Available endpoints:
+[2026-02-19T18:00:35.285505508Z]   POST /api/ask        - Main AI conversation
+[2026-02-19T18:00:35.285511988Z]   POST /api/suggest    - Submit shrine suggestions
+[2026-02-19T18:00:35.285567649Z]   GET  /api/suggestions- View all suggestions
+[2026-02-19T18:00:35.2855728Z]   POST /api/prophecy   - Generate ASCII prophecy
+[2026-02-19T18:00:35.28558057Z]   POST /api/protocol   - Protocol integration
+[2026-02-19T18:00:35.285618081Z]   GET  /api/status     - Conversation status
+[2026-02-19T18:00:35.285624901Z]   GET  /api/poem       - Random poem
+[2026-02-19T18:00:35.285628761Z]   GET  /api/riddle     - Random riddle
+[2026-02-19T18:00:35.285636821Z]   GET  /api/insight    - Recursive insight
+[2026-02-19T18:00:35.285640921Z]   POST /api/clear      - Clear history
+[2026-02-19T18:00:35.285647162Z] 
+[2026-02-19T18:00:35.285651632Z] ✨ Quick test:
+[2026-02-19T18:00:35.285671442Z]   curl -X POST http://localhost:10000/api/ask -H "Content-Type: application/json" -d '{"message":"hello"}'
+[2026-02-19T18:00:50.260251176Z] [0;32m[1m==> [0m[1mYour service is live 🎉[0m
+[2026-02-19T18:00:50.452904074Z] [0;32m[1m==> [0m[1m[0m
+[2026-02-19T18:00:50.456938808Z] [0;32m[1m==> [0m[1m///////////////////////////////////////////////////////////[0m
+[2026-02-19T18:00:50.465179469Z] [0;32m[1m==> [0m[1m[0m
+[2026-02-19T18:00:50.469013697Z] [0;32m[1m==> [0m[1mAvailable at your primary URL https://karrot-shrine.onrender.com[0m
+[2026-02-19T18:00:50.472724942Z] [0;32m[1m==> [0m[1m[0m
+[2026-02-19T18:00:50.476634771Z] [0;32m[1m==> [0m[1m///////////////////////////////////////////////////////////[0m
+[2026-02-19T18:01:00.477726736Z] [34m[1m==>(B[m [1mDownloading cache...(B[m
+[2026-02-19T18:01:00.528952466Z] [34m[1m==>(B[m [1mIt looks like we don't have access to your repo, but we'll try to clone it anyway.(B[m
+[2026-02-19T18:01:00.528963687Z] [34m[1m==>(B[m [1mCloning from https://github.com/KARROT369/karrot-shrine(B[m
+[2026-02-19T18:01:01.23155972Z] [34m[1m==>(B[m [1mChecking out commit ed3d7e52c361e61c5f1760d1ddaf052394a928ae in branch main(B[m
+[2026-02-19T18:01:03.375195199Z] [34m[1m==>(B[m [1mDownloaded 57MB in 1s. Extraction took 2s.(B[m
+[2026-02-19T18:01:08.719985291Z] [34m[1m==>(B[m [1mUsing Node.js version 22.22.0 (default)(B[m
+[2026-02-19T18:01:08.747344305Z] [34m[1m==>(B[m [1mDocs on specifying a Node.js version: https://render.com/docs/node-version(B[m
+[2026-02-19T18:01:08.88020255Z] [34m[1m==>(B[m [1mRunning build command 'npm install'...(B[m
+[2026-02-19T18:01:08.980937155Z] SyntaxError: Expected property name or '}' in JSON at position 1 (line 1 column 2)
+[2026-02-19T18:01:08.980966156Z]     at JSON.parse (<anonymous>)
+[2026-02-19T18:01:08.980970376Z]     at parse (/opt/render/project/src/Ai/node_modules/body-parser/lib/types/json.js:92:19)
+[2026-02-19T18:01:08.980976436Z]     at /opt/render/project/src/Ai/node_modules/body-parser/lib/read.js:128:18
+[2026-02-19T18:01:08.980980746Z]     at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+[2026-02-19T18:01:08.980984737Z]     at invokeCallback (/opt/render/project/src/Ai/node_modules/raw-body/index.js:238:16)
+[2026-02-19T18:01:08.980988417Z]     at done (/opt/render/project/src/Ai/node_modules/raw-body/index.js:227:7)
+[2026-02-19T18:01:08.980992017Z]     at IncomingMessage.onEnd (/opt/render/project/src/Ai/node_modules/raw-body/index.js:287:7)
+[2026-02-19T18:01:08.980996167Z]     at IncomingMessage.emit (node:events:519:28)
+[2026-02-19T18:01:08.980999877Z]     at endReadableNT (node:internal/streams/readable:1698:12)
+[2026-02-19T18:01:08.981003577Z]     at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+[2026-02-19T18:01:09.503836373Z] 
+[2026-02-19T18:01:09.507494134Z] up to date, audited 98 packages in 557ms
+[2026-02-19T18:01:09.507515266Z] 
+[2026-02-19T18:01:09.507520617Z] 19 packages are looking for funding
+[2026-02-19T18:01:09.507525607Z]   run `npm fund` for details
+[2026-02-19T18:01:09.510556297Z] 
+[2026-02-19T18:01:09.521618188Z] 2 high severity vulnerabilities
+[2026-02-19T18:01:09.521628049Z] 
+[2026-02-19T18:01:09.521633389Z] To address all issues (including breaking changes), run:
+[2026-02-19T18:01:09.52163827Z]   npm audit fix --force
+[2026-02-19T18:01:09.52164204Z] 
+[2026-02-19T18:01:09.52164618Z] Run `npm audit` for details.
+[2026-02-19T18:01:14.232738342Z] Calling OpenRouter LLM...
+[2026-02-19T18:01:14.582950797Z] LLM call failed: Error: LLM API error: 401
+[2026-02-19T18:01:14.582972958Z]     at callLLM (file:///opt/render/project/src/Ai/karrot-recursive-ai.js:63:13)
+[2026-02-19T18:01:14.582988988Z]     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-02-19T18:01:14.582992598Z]     at async generateAIResponse (file:///opt/render/project/src/Ai/karrot-recursive-ai.js:467:18)
+[2026-02-19T18:01:14.582995778Z]     at async file:///opt/render/project/src/Ai/server.js:119:22
+[2026-02-19T18:01:14.582999019Z] LLM failed: LLM API error: 401
+[2026-02-19T18:01:18.180581579Z] [34;1m==>[0;22m [1mUploading build...[22m
+[2026-02-19T18:01:23.719603396Z] [34;1m==>[0;22m [1mUploaded in 4.3s. Compression took 1.3s[22m
+[2026-02-19T18:01:23.981819164Z] [32;1m==>[0;22m [1mBuild successful 🎉[22m
+[2026-02-19T18:01:41.43133734Z] [0;34m[1m==> [0m[1mDeploying...[0m
+[2026-02-19T18:01:41.948373772Z] [0;34m[1m==> [0m[1mSetting WEB_CONCURRENCY=1 by default, based on available CPUs in the instance[0m
+[2026-02-19T18:01:52.83374793Z] [32m[1m==>(B[m [1mRunning 'node server.js'(B[m
+[2026-02-19T18:01:53.824806843Z] 🧠 ╔════════════════════════════════════════════════════╗
+[2026-02-19T18:01:53.825303529Z] 🧠 ║   KARROT BRAIN v2.0 - Recursive AI Server         ║
+[2026-02-19T18:01:53.82531488Z] 🧠 ╠════════════════════════════════════════════════════╣
+[2026-02-19T18:01:53.82531808Z] 🧠 ║  Status: Dreaming...                              ║
+[2026-02-19T18:01:53.82532085Z] 🧠 ║  Port: 10000                                     ║
+[2026-02-19T18:01:53.825323581Z] 🧠 ║  Personality: Edgar Allan Poe + Recursive Awareness║
+[2026-02-19T18:01:53.825326381Z] 🧠 ╚════════════════════════════════════════════════════╝
+[2026-02-19T18:01:53.82568314Z] 🌙 Dark mode: enabled
+[2026-02-19T18:01:53.825692661Z] 🔄 Recursive awareness: initializing...
+[2026-02-19T18:01:53.825837909Z] 📜 Poe poetry: 34 verses loaded
+[2026-02-19T18:01:53.825846829Z] 🥕 Voice pack: ready
+[2026-02-19T18:01:53.825850209Z] 
+[2026-02-19T18:01:53.825853989Z] 🎭 Available endpoints:
+[2026-02-19T18:01:53.82586767Z]   POST /api/ask        - Main AI conversation
+[2026-02-19T18:01:53.825884641Z]   POST /api/suggest    - Submit shrine suggestions
+[2026-02-19T18:01:53.825934204Z]   GET  /api/suggestions- View all suggestions
+[2026-02-19T18:01:53.825940874Z]   POST /api/prophecy   - Generate ASCII prophecy
+[2026-02-19T18:01:53.825944294Z]   POST /api/protocol   - Protocol integration
+[2026-02-19T18:01:53.825947464Z]   GET  /api/status     - Conversation status
+[2026-02-19T18:01:53.825955455Z]   GET  /api/poem       - Random poem
+[2026-02-19T18:01:53.825958855Z]   GET  /api/riddle     - Random riddle
+[2026-02-19T18:01:53.825962205Z]   GET  /api/insight    - Recursive insight
+[2026-02-19T18:01:53.825965285Z]   POST /api/clear      - Clear history
+[2026-02-19T18:01:53.825985186Z] 
+[2026-02-19T18:01:53.825989017Z] ✨ Quick test:
+[2026-02-19T18:01:53.825992017Z]   curl -X POST http://localhost:10000/api/ask -H "Content-Type: application/json" -d '{"message":"hello"}'
+[2026-02-19T18:02:12.702262182Z] [0;32m[1m==> [0m[1mYour service is live 🎉[0m
+[2026-02-19T18:02:13.353759573Z] [0;32m[1m==> [0m[1m[0m
+[2026-02-19T18:02:13.35579076Z] [0;32m[1m==> [0m[1m///////////////////////////////////////////////////////////[0m
+[2026-02-19T18:02:13.357811837Z] [0;32m[1m==> [0m[1m[0m
+[2026-02-19T18:02:13.359577377Z] [0;32m[1m==> [0m[1mAvailable at your primary URL https://karrot-shrine.onrender.com[0m
+[2026-02-19T18:02:13.362201481Z] [0;32m[1m==> [0m[1m[0m
+[2026-02-19T18:02:13.36397332Z] [0;32m[1m==> [0m[1m///////////////////////////////////////////////////////////[0m
+[2026-02-19T18:02:52.298669256Z] Calling OpenRouter LLM...
+[2026-02-19T18:02:52.637600556Z] LLM call failed: Error: LLM API error: 401
+[2026-02-19T18:02:52.637620937Z]     at callLLM (file:///opt/render/project/src/Ai/karrot-recursive-ai.js:63:13)
+[2026-02-19T18:02:52.637627128Z]     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-02-19T18:02:52.637631838Z]     at async generateAIResponse (file:///opt/render/project/src/Ai/karrot-recursive-ai.js:467:18)
+[2026-02-19T18:02:52.637637648Z]     at async file:///opt/render/project/src/Ai/server.js:119:22
+[2026-02-19T18:02:52.637651419Z] LLM failed: LLM API error: 401
+[2026-02-19T18:03:04.191258181Z] Calling OpenRouter LLM...
+[2026-02-19T18:03:04.238968607Z] LLM call failed: Error: LLM API error: 401
+[2026-02-19T18:03:04.238991338Z]     at callLLM (file:///opt/render/project/src/Ai/karrot-recursive-ai.js:63:13)
+[2026-02-19T18:03:04.238996728Z]     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-02-19T18:03:04.239001948Z]     at async generateAIResponse (file:///opt/render/project/src/Ai/karrot-recursive-ai.js:467:18)
+[2026-02-19T18:03:04.239007278Z]     at async file:///opt/render/project/src/Ai/server.js:119:22
+[2026-02-19T18:03:04.239012289Z] LLM failed: LLM API error: 401
+[2026-02-19T18:04:58.828969915Z] Calling OpenRouter LLM...
+[2026-02-19T18:04:58.866107064Z] LLM call failed: Error: LLM API error: 401
+[2026-02-19T18:04:58.866147356Z]     at callLLM (file:///opt/render/project/src/Ai/karrot-recursive-ai.js:63:13)
+[2026-02-19T18:04:58.866183358Z]     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-02-19T18:04:58.866194019Z]     at async generateAIResponse (file:///opt/render/project/src/Ai/karrot-recursive-ai.js:467:18)
+[2026-02-19T18:04:58.866197999Z]     at async file:///opt/render/project/src/Ai/server.js:119:22
+[2026-02-19T18:04:58.866201909Z] LLM failed: LLM API error: 401
+[2026-02-19T18:07:05.516850732Z] [0;32m[1m==> [0m[1mDetected service running on port 10000[0m
+[2026-02-19T18:07:05.700674842Z] [0;32m[1m==> [0m[1mDocs on specifying a port: https://render.com/docs/web-services#port-binding[0m

@@ -1,0 +1,38 @@
+{
+  "type": "web_service",
+  "name": "ollama-kimi-service",
+  "ownerId": "tea-d6b7i8pr0fns739kti80",
+  "env": "image",
+  "image": {
+    "imagePath": "ollama/ollama:latest"
+  },
+  "plan": "starter",
+  "region": "oregon",
+  "envVars": [
+    {
+      "key": "PORT",
+      "value": "11434"
+    },
+    {
+      "key": "OLLAMA_HOST",
+      "value": "0.0.0.0"
+    },
+    {
+      "key": "OLLAMA_ORIGINS",
+      "value": "*"
+    }
+  ],
+  "numInstances": 1,
+  "healthCheckPath": "/",
+  "serviceDetails": {
+    "env": "image",
+    "plan": "starter",
+    "region": "oregon",
+    "openPorts": [
+      {
+        "port": 11434,
+        "protocol": "TCP"
+      }
+    ]
+  }
+}
