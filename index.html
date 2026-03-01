@@ -114,9 +114,7 @@
     }
     .amount-input::placeholder { color: #555; }
     
-    .digit-row { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid #2a2a2a; }
-    .digit-btn { background: #2a2a2a; border: 1px solid #333; border-radius: 6px; padding: 0.4rem 0.5rem; color: #888; font-size: 0.65rem; cursor: pointer; transition: all 0.15s; }
-    .digit-btn:hover { background: #FF7F11; border-color: #FF7F11; color: #000; }
+    .decimal-display { font-size: 0.75rem; color: #666; text-align: right; margin-top: 0.25rem; padding-right: 0.5rem; font-family: 'Courier New', monospace; }
     
     .token-select-btn { display: flex; align-items: center; gap: 0.5rem;
       background: #2a2a2a; border: 1px solid #333; border-radius: 12px;
@@ -263,18 +261,7 @@
             </select>
           </div>
         </div>
-        <div class="digit-row">
-          <button class="digit-btn" data-target="amountFrom" data-value="0.000001">0.000001</button>
-          <button class="digit-btn" data-target="amountFrom" data-value="0.00001">0.00001</button>
-          <button class="digit-btn" data-target="amountFrom" data-value="0.0001">0.0001</button>
-          <button class="digit-btn" data-target="amountFrom" data-value="0.001">0.001</button>
-          <button class="digit-btn" data-target="amountFrom" data-value="0.01">0.01</button>
-          <button class="digit-btn" data-target="amountFrom" data-value="0.1">0.1</button>
-          <button class="digit-btn" data-target="amountFrom" data-value="1">1</button>
-          <button class="digit-btn" data-target="amountFrom" data-value="10">10</button>
-          <button class="digit-btn" data-target="amountFrom" data-value="100">100</button>
-          <button class="digit-btn" data-target="amountFrom" data-value="1000">1K</button>
-        </div>
+        <div class="decimal-display">0.000000</div>
       </div>
 
       <!-- Switch Button -->
@@ -299,18 +286,7 @@
             </select>
           </div>
         </div>
-        <div class="digit-row">
-          <button class="digit-btn" data-target="amountToDisplay" data-value="0.000001">0.000001</button>
-          <button class="digit-btn" data-target="amountToDisplay" data-value="0.00001">0.00001</button>
-          <button class="digit-btn" data-target="amountToDisplay" data-value="0.0001">0.0001</button>
-          <button class="digit-btn" data-target="amountToDisplay" data-value="0.001">0.001</button>
-          <button class="digit-btn" data-target="amountToDisplay" data-value="0.01">0.01</button>
-          <button class="digit-btn" data-target="amountToDisplay" data-value="0.1">0.1</button>
-          <button class="digit-btn" data-target="amountToDisplay" data-value="1">1</button>
-          <button class="digit-btn" data-target="amountToDisplay" data-value="10">10</button>
-          <button class="digit-btn" data-target="amountToDisplay" data-value="100">100</button>
-          <button class="digit-btn" data-target="amountToDisplay" data-value="1000">1K</button>
-        </div>
+        <div class="decimal-display">0.000000</div>
       </div>
 
       <!-- Price Info -->
@@ -546,19 +522,5 @@
 
   <!-- App Script -->
   <script src="app.js"></script>
-  
-  <!-- Digit Button Handler -->
-  <script>
-    document.querySelectorAll('.digit-btn').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const target = e.target.dataset.target;
-        const value = e.target.dataset.value;
-        if (target === 'amountFrom') {
-          const input = document.getElementById('amountFrom');
-          if (input) input.value = value;
-        }
-      });
-    });
-  </script>
 </body>
 </html>
