@@ -578,16 +578,21 @@
     
     if (connectWalletBtn) {
       connectWalletBtn.addEventListener('click', async () => {
-        try {
-          await window.KarrotDEX.connectWallet();
-        } catch (error) {
-          console.error('Connection failed:', error);
-          if (error.message === 'MetaMask not detected') {
-            alert('MetaMask or Web3 wallet not detected. Please install MetaMask.');
-            window.open('https://metamask.io', '_blank');
-          } else {
+        if (typeof window.ethereum !== 'undefined') {
+          try {
+            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+            if (accounts.length > 0) {
+              const address = accounts[0];
+              connectWalletBtn.textContent = address.slice(0, 6) + '...' + address.slice(-4);
+              console.log('Connected:', address);
+            }
+          } catch (error) {
+            console.error('Wallet connection failed:', error);
             alert('Failed to connect wallet: ' + error.message);
           }
+        } else {
+          alert('MetaMask or Web3 wallet not detected. Please install MetaMask.');
+          window.open('https://metamask.io', '_blank');
         }
       });
     }
