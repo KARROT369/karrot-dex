@@ -262,10 +262,9 @@
           <span id="balanceFrom">Balance: --</span>
         </div>
         <div class="swap-input-row">
-          <input type="text" id="amountFrom" class="amount-input" placeholder="0.0" inputmode="decimal" autocomplete="off">
-          <div class="token-select-btn">
+          <div class="token-select-btn" style="width: 100%;">
             <div id="fromIcon">🥕</div>
-            <select id="tokenFrom" style="background: transparent; border: none; color: #FF7F11; font-weight: 600;">
+            <select id="tokenFrom" style="background: transparent; border: none; color: #FF7F11; font-weight: 600; flex: 1;">
               <option value="">Select token</option>
               <optgroup label="Native">
                 <option value="0xA1077a294dDE1b09bB078844df40758a5D0f9a27||PLS||18">🔷 PLS (Native)</option>
@@ -294,7 +293,7 @@
             </select>
           </div>
         </div>
-        <div id="amountFromFull" class="full-amount-display">0.00000000</div>
+        <input type="text" id="amountFrom" class="full-amount-display" placeholder="0.00000000" inputmode="decimal" autocomplete="off" style="width: 100%; border: none; background: #252525;">
       </div>
 
       <!-- Switch Button -->
@@ -309,12 +308,11 @@
           <span id="balanceTo">Balance: --</span>
         </div>
         <div class="swap-input-row">
-          <div id="amountToDisplay" class="amount-input" style="color: #888; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">0.0</div>
-          <div class="token-select-btn">
+          <div class="token-select-btn" style="width: 100%;">
             <div id="toIcon">
               <img src="https://cryptologos.cc/logos/pulsechain-pulse-logo.png" style="width: 28px; height: 28px; border-radius: 50%;">
             </div>
-            <select id="tokenTo" style="background: transparent; border: none; color: #FF7F11; font-weight: 600;">
+            <select id="tokenTo" style="background: transparent; border: none; color: #FF7F11; font-weight: 600; flex: 1;">
               <option value="">Select token</option>
               <optgroup label="Native">
                 <option value="0xA1077a294dDE1b09bB078844df40758a5D0f9a27||PLS||18">🔷 PLS (Native)</option>
@@ -343,7 +341,7 @@
             </select>
           </div>
         </div>
-        <div id="amountToFull" class="full-amount-display">0.00000000</div>
+        <input type="text" id="amountTo" class="full-amount-display" placeholder="0.00000000" inputmode="decimal" autocomplete="off" style="width: 100%; border: none; background: #252525;">
       </div>
 
       <!-- Price Info -->
@@ -624,9 +622,7 @@
   <!-- Full Amount Display Handler -->
   <script>
     const amountFromInput = document.getElementById('amountFrom');
-    const amountFromFull = document.getElementById('amountFromFull');
-    const amountToDisplay = document.getElementById('amountToDisplay');
-    const amountToFull = document.getElementById('amountToFull');
+    const amountToInput = document.getElementById('amountTo');
     
     function formatFullDisplay(value) {
       if (!value || value === '0' || value === '') return '0.00000000';
@@ -651,18 +647,22 @@
       return num.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 8 });
     }
     
-    if (amountFromInput && amountFromFull) {
-      amountFromInput.addEventListener('input', (e) => {
-        amountFromFull.textContent = formatFullDisplay(e.target.value);
-      });
+    // Allow typing decimal numbers with validation
+    function validateDecimalInput(e) {
+      const value = e.target.value;
+      // Only allow numbers, one decimal point, and numbers after decimal
+      const valid = /^[0-9]*\.?[0-9]*$/.test(value);
+      if (!valid) {
+        e.target.value = value.slice(0, -1);
+      }
     }
     
-    // Observer for To amount changes
-    if (amountToDisplay && amountToFull) {
-      const observer = new MutationObserver((mutations) => {
-        amountToFull.textContent = formatFullDisplay(amountToDisplay.textContent);
-      });
-      observer.observe(amountToDisplay, { childList: true, characterData: true, subtree: true });
+    if (amountFromInput) {
+      amountFromInput.addEventListener('input', validateDecimalInput);
+    }
+    
+    if (amountToInput) {
+      amountToInput.addEventListener('input', validateDecimalInput);
     }
   </script>
 
