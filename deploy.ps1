@@ -1,1 +1,0 @@
-Invoke-RestMethod -Uri "https://api.render.com/v1/services/srv-d6bgqbmr433s73d54jcg/deploys" -Headers @{"Accept"="application/json"; "Authorization"="Bearer rnd_Rh6HKo3qpfqgrWZDlJ7Si4QI97yc"; "Content-Type"="application/json"} -Body '{"clearCache": "do_not_clear", "commitId": "3c22f65"}' -Method POST
