@@ -117,17 +117,19 @@
     .amount-input::placeholder { color: #555; }
     
     .full-amount-display { 
-      font-size: 0.9rem; 
+      font-size: 1.1rem; 
       color: #FF7F11; 
       text-align: right; 
-      margin-top: 0.5rem; 
-      padding: 0.25rem 0.5rem;
+      margin-top: 0.75rem; 
+      padding: 0.5rem 0.75rem;
       font-family: 'Courier New', monospace;
       word-break: break-all; 
-      line-height: 1.3;
-      background: #1a1a1a;
-      border-radius: 6px;
-      min-height: 1.2rem;
+      line-height: 1.4;
+      background: #252525;
+      border: 1px solid #333;
+      border-radius: 8px;
+      min-height: 2rem;
+      font-weight: 600;
     }
     
     .token-select-btn { display: flex; align-items: center; gap: 0.5rem;
@@ -568,6 +570,32 @@
       }
       progressFill.style.width = progress + '%';
     }, 200);
+  </script>
+
+  <!-- Connect Wallet Handler -->
+  <script>
+    const connectWalletBtn = document.getElementById('connectWallet');
+    
+    if (connectWalletBtn) {
+      connectWalletBtn.addEventListener('click', async () => {
+        if (typeof window.ethereum !== 'undefined') {
+          try {
+            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+            if (accounts.length > 0) {
+              const address = accounts[0];
+              connectWalletBtn.textContent = address.slice(0, 6) + '...' + address.slice(-4);
+              console.log('Connected:', address);
+            }
+          } catch (error) {
+            console.error('Wallet connection failed:', error);
+            alert('Failed to connect wallet: ' + error.message);
+          }
+        } else {
+          alert('MetaMask or Web3 wallet not detected. Please install MetaMask.');
+          window.open('https://metamask.io', '_blank');
+        }
+      });
+    }
   </script>
 
   <!-- Custom Address Toggle Handler -->
