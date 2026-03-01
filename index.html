@@ -284,7 +284,7 @@
             </select>
           </div>
         </div>
-        <div id="amountFromFull" class="full-amount-display"></div>
+        <div id="amountFromFull" class="full-amount-display">0.00000000</div>
       </div>
 
       <!-- Switch Button -->
@@ -333,7 +333,7 @@
             </select>
           </div>
         </div>
-        <div id="amountToFull" class="full-amount-display"></div>
+        <div id="amountToFull" class="full-amount-display">0.00000000</div>
       </div>
 
       <!-- Price Info -->
@@ -570,20 +570,26 @@
     const amountToFull = document.getElementById('amountToFull');
     
     function formatFullDisplay(value) {
-      if (!value || value === '0' || value === '') return '';
+      if (!value || value === '0' || value === '') return '0.00000000';
       const num = parseFloat(value);
-      if (isNaN(num)) return '';
+      if (isNaN(num)) return '0.00000000';
+      
+      // For zero
+      if (num === 0) return '0.00000000';
       
       // For very small numbers, show full precision
-      if (num > 0 && num < 0.001) {
+      if (num > 0 && num < 0.00000001) {
+        return num.toPrecision(10);
+      }
+      if (num > 0 && num < 0.000001) {
         return num.toPrecision(8);
       }
       // For very large numbers, show with commas
       if (num >= 1000000) {
         return num.toLocaleString('en-US', { maximumFractionDigits: 8 });
       }
-      // Normal numbers, show up to 6 decimals
-      return num.toLocaleString('en-US', { maximumFractionDigits: 6 });
+      // Normal numbers, show up to 8 decimals
+      return num.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 8 });
     }
     
     if (amountFromInput && amountFromFull) {
