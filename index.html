@@ -570,6 +570,29 @@
     }, 200);
   </script>
 
+  <!-- Custom Address Toggle Handler -->
+  <script>
+    const useCustomAddressCheckbox = document.getElementById('useCustomAddress');
+    const customAddressInput = document.getElementById('customAddress');
+    const customAddressNote = document.getElementById('customAddressNote');
+    
+    if (useCustomAddressCheckbox) {
+      useCustomAddressCheckbox.addEventListener('change', (e) => {
+        if (customAddressInput) {
+          if (e.target.checked) {
+            customAddressInput.classList.add('show');
+            if (customAddressNote) customAddressNote.classList.add('show');
+            customAddressInput.focus();
+          } else {
+            customAddressInput.classList.remove('show');
+            if (customAddressNote) customAddressNote.classList.remove('show');
+            customAddressInput.value = '';
+          }
+        }
+      });
+    }
+  </script>
+
   <!-- Full Amount Display Handler -->
   <script>
     const amountFromInput = document.getElementById('amountFrom');
