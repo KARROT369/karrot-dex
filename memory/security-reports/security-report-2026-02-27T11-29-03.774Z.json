@@ -1,0 +1,206 @@
+{
+  "timestamp": "2026-02-27T11:29:03.774Z",
+  "hour": 7,
+  "testsRun": 16,
+  "vulnerabilitiesFound": 1,
+  "passRate": "93.75",
+  "tests": [
+    {
+      "timestamp": "2026-02-27T11:29:03.779Z",
+      "vector": "DEPEG_MANIPULATION",
+      "name": "DEPEG_MANIPULATION",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 727
+    },
+    {
+      "timestamp": "2026-02-27T11:29:03.783Z",
+      "vector": "ACCESS_CONTROL_BYPASS",
+      "name": "ACCESS_CONTROL_BYPASS",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 728
+    },
+    {
+      "timestamp": "2026-02-27T11:29:03.783Z",
+      "vector": "STORAGE_SLOT_OVERWRITE",
+      "name": "STORAGE_SLOT_OVERWRITE",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 729
+    },
+    {
+      "timestamp": "2026-02-27T11:29:03.783Z",
+      "vector": "MEV_BACK_RUN",
+      "name": "MEV_BACK_RUN",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 730
+    },
+    {
+      "timestamp": "2026-02-27T11:29:03.783Z",
+      "vector": "DEPEG_MANIPULATION",
+      "name": "DEPEG_MANIPULATION",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 731
+    },
+    {
+      "timestamp": "2026-02-27T11:29:03.783Z",
+      "vector": "METAMORPHIC_CONTRACT",
+      "name": "METAMORPHIC_CONTRACT",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 732
+    },
+    {
+      "timestamp": "2026-02-27T11:29:03.783Z",
+      "vector": "DUST_ATTACK_SPAM",
+      "name": "Dust Attack Spam",
+      "severity": "LOW",
+      "description": "Attacker sends dust amounts to spam orderbook",
+      "discovered": false,
+      "testCode": "// Dust amount test",
+      "mitigation": "Minimum order thresholds",
+      "runId": 733
+    },
+    {
+      "timestamp": "2026-02-27T11:29:03.783Z",
+      "vector": "PROXY_DELEGATECALL_ATTACK",
+      "name": "PROXY_DELEGATECALL_ATTACK",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 734
+    },
+    {
+      "timestamp": "2026-02-27T11:29:03.783Z",
+      "vector": "FLASH_LOAN_ORACLE_MANIPULATION",
+      "name": "FLASH_LOAN_ORACLE_MANIPULATION",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 735
+    },
+    {
+      "timestamp": "2026-02-27T11:29:03.783Z",
+      "vector": "REENTRANCY_CROSS_CONTRACT",
+      "name": "REENTRANCY_CROSS_CONTRACT",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 736
+    },
+    {
+      "timestamp": "2026-02-27T11:29:03.783Z",
+      "vector": "DIVISION_BY_ZERO",
+      "name": "DIVISION_BY_ZERO",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 737
+    },
+    {
+      "timestamp": "2026-02-27T11:29:03.783Z",
+      "vector": "UNAUTHORIZED_BURN",
+      "name": "UNAUTHORIZED_BURN",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 738
+    },
+    {
+      "timestamp": "2026-02-27T11:29:03.783Z",
+      "vector": "DIVISION_BY_ZERO",
+      "name": "DIVISION_BY_ZERO",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 739
+    },
+    {
+      "timestamp": "2026-02-27T11:29:03.783Z",
+      "vector": "ARITHMETIC_OVERFLOW",
+      "name": "ARITHMETIC_OVERFLOW",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 740
+    },
+    {
+      "timestamp": "2026-02-27T11:29:03.783Z",
+      "vector": "GAS_GREEDING_BLOCK_STUFFING",
+      "name": "Block Stuffing Gas Griefing",
+      "severity": "MEDIUM",
+      "description": "Attacker fills blocks to delay transactions",
+      "discovered": false,
+      "testCode": "// Gas griefing simulation",
+      "mitigation": "Decentralized sequencing, time locks",
+      "runId": 741
+    },
+    {
+      "timestamp": "2026-02-27T11:29:03.783Z",
+      "vector": "BRIDGE_DOUBLE_SPEND",
+      "name": "BRIDGE_DOUBLE_SPEND",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 742
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "timestamp": "2026-02-27T11:29:03.783Z",
+      "vector": "DIVISION_BY_ZERO",
+      "name": "DIVISION_BY_ZERO",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 739
+    }
+  ],
+  "contractsTested": [
+    "KarrotDexAggregator_v4.sol",
+    "KarrotProtocol.sol",
+    "pxAssetMinter.sol",
+    "SolanaVault.rs"
+  ],
+  "attackVectors": 42,
+  "notes": "Automated security testing in progress. Manual review required for all \"discovered\" vulnerabilities."
+}

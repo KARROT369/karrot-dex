@@ -1,0 +1,43 @@
+{
+  "meta": {
+    "version": "2026.2.12",
+    "lastTouched": "2026-02-15T20:12:00"
+  },
+  "gateway": {
+    "port": 18789,
+    "bind": "127.0.0.1",
+    "agent": {
+      "model": "local/qwen2.5:latest",
+      "maxConcurrent": 4,
+      "session": {
+        "timeoutMs": 600000,
+        "historySize": 20
+      }
+    }
+  },
+  "canvas": {
+    "enabled": true,
+    "host": "http://127.0.0.1:18789/__openclaw__/canvas/",
+    "root": "C:\\Users\\chels\\.openclaw\\canvas"
+  },
+  "whatsapp": {
+    "default": {
+      "provider": "+19028142373",
+      "listenInbound": true,
+      "typingTTL": 120
+    }
+  },
+  "skills": {
+    "enabled": [],
+    "disabled": [],
+    "allowlist": []
+  },
+  "plugins": {
+    "loaded": [],
+    "disabled": []
+  },
+  "logging": {
+    "file": "\\tmp\\openclaw\\openclaw-2026-02-15.log",
+    "level": "info"
+  }
+}

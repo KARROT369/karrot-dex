@@ -1,0 +1,151 @@
+{
+  "timestamp": "2026-02-28T12:29:03.617Z",
+  "hour": 8,
+  "testsRun": 11,
+  "vulnerabilitiesFound": 1,
+  "passRate": "90.91",
+  "tests": [
+    {
+      "timestamp": "2026-02-28T12:29:03.622Z",
+      "vector": "ARITHMETIC_UNDERFLOW",
+      "name": "ARITHMETIC_UNDERFLOW",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 828
+    },
+    {
+      "timestamp": "2026-02-28T12:29:03.626Z",
+      "vector": "INFLATION_ATTACK",
+      "name": "INFLATION_ATTACK",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 829
+    },
+    {
+      "timestamp": "2026-02-28T12:29:03.626Z",
+      "vector": "ERC777_HOOK_EXPLOIT",
+      "name": "ERC777_HOOK_EXPLOIT",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 830
+    },
+    {
+      "timestamp": "2026-02-28T12:29:03.626Z",
+      "vector": "STORAGE_COLLISION_UPGRADE",
+      "name": "Proxy Storage Collision",
+      "severity": "CRITICAL",
+      "description": "Upgradeable proxy has storage collision vulnerability",
+      "discovered": false,
+      "testCode": "// Storage layout test",
+      "mitigation": "EIP-1967 storage slots, transparent proxies",
+      "runId": 831
+    },
+    {
+      "timestamp": "2026-02-28T12:29:03.626Z",
+      "vector": "SIGNATURE_MALLEABILITY",
+      "name": "SIGNATURE_MALLEABILITY",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 832
+    },
+    {
+      "timestamp": "2026-02-28T12:29:03.626Z",
+      "vector": "SIGNATURE_MALLEABILITY",
+      "name": "SIGNATURE_MALLEABILITY",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 833
+    },
+    {
+      "timestamp": "2026-02-28T12:29:03.626Z",
+      "vector": "ORACLE_FRONT_RUNNING",
+      "name": "ORACLE_FRONT_RUNNING",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 834
+    },
+    {
+      "timestamp": "2026-02-28T12:29:03.626Z",
+      "vector": "INFLATION_ATTACK",
+      "name": "INFLATION_ATTACK",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 835
+    },
+    {
+      "timestamp": "2026-02-28T12:29:03.626Z",
+      "vector": "ORACLE_PRICE_FEED_ATTACK",
+      "name": "Stale Oracle Data Exploit",
+      "severity": "HIGH",
+      "description": "Contract uses stale price data",
+      "discovered": false,
+      "testCode": "// Oracle staleness test",
+      "mitigation": "Oracle freshness checks, multiple oracle sources",
+      "runId": 836
+    },
+    {
+      "timestamp": "2026-02-28T12:29:03.626Z",
+      "vector": "DUST_ATTACK_SPAM",
+      "name": "Dust Attack Spam",
+      "severity": "LOW",
+      "description": "Attacker sends dust amounts to spam orderbook",
+      "discovered": false,
+      "testCode": "// Dust amount test",
+      "mitigation": "Minimum order thresholds",
+      "runId": 837
+    },
+    {
+      "timestamp": "2026-02-28T12:29:03.626Z",
+      "vector": "REENTRANCY_CROSS_CONTRACT",
+      "name": "REENTRANCY_CROSS_CONTRACT",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 838
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "timestamp": "2026-02-28T12:29:03.626Z",
+      "vector": "INFLATION_ATTACK",
+      "name": "INFLATION_ATTACK",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 835
+    }
+  ],
+  "contractsTested": [
+    "KarrotDexAggregator_v4.sol",
+    "KarrotProtocol.sol",
+    "pxAssetMinter.sol",
+    "SolanaVault.rs"
+  ],
+  "attackVectors": 42,
+  "notes": "Automated security testing in progress. Manual review required for all \"discovered\" vulnerabilities."
+}

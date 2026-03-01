@@ -1,0 +1,239 @@
+{
+  "timestamp": "2026-02-26T22:52:54.675Z",
+  "hour": 18,
+  "testsRun": 15,
+  "vulnerabilitiesFound": 5,
+  "passRate": "66.67",
+  "tests": [
+    {
+      "timestamp": "2026-02-26T22:52:55.516Z",
+      "vector": "FLASH_LOAN_ORACLE_MANIPULATION",
+      "name": "FLASH_LOAN_ORACLE_MANIPULATION",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1826
+    },
+    {
+      "timestamp": "2026-02-26T22:52:55.546Z",
+      "vector": "STORAGE_SLOT_OVERWRITE",
+      "name": "STORAGE_SLOT_OVERWRITE",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1827
+    },
+    {
+      "timestamp": "2026-02-26T22:52:55.546Z",
+      "vector": "STORAGE_SLOT_OVERWRITE",
+      "name": "STORAGE_SLOT_OVERWRITE",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1828
+    },
+    {
+      "timestamp": "2026-02-26T22:52:55.546Z",
+      "vector": "GAS_LIMIT_MANIPULATION",
+      "name": "GAS_LIMIT_MANIPULATION",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1829
+    },
+    {
+      "timestamp": "2026-02-26T22:52:55.546Z",
+      "vector": "REBASE_TOKEN_DRIFT",
+      "name": "REBASE_TOKEN_DRIFT",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1830
+    },
+    {
+      "timestamp": "2026-02-26T22:52:55.546Z",
+      "vector": "FLASH_LOAN_PRICE_MANIPULATION",
+      "name": "Flash Loan Oracle Manipulation",
+      "severity": "HIGH",
+      "description": "Attacker borrows flash loan to manipulate price oracle",
+      "discovered": true,
+      "testCode": "// Flash loan manipulation test",
+      "mitigation": "Time-weighted average prices, TWAP oracles",
+      "runId": 1831
+    },
+    {
+      "timestamp": "2026-02-26T22:52:55.546Z",
+      "vector": "STORAGE_COLLISION_UPGRADE",
+      "name": "Proxy Storage Collision",
+      "severity": "CRITICAL",
+      "description": "Upgradeable proxy has storage collision vulnerability",
+      "discovered": true,
+      "testCode": "// Storage layout test",
+      "mitigation": "EIP-1967 storage slots, transparent proxies",
+      "runId": 1832
+    },
+    {
+      "timestamp": "2026-02-26T22:52:55.546Z",
+      "vector": "GAS_GREEDING_BLOCK_STUFFING",
+      "name": "Block Stuffing Gas Griefing",
+      "severity": "MEDIUM",
+      "description": "Attacker fills blocks to delay transactions",
+      "discovered": false,
+      "testCode": "// Gas griefing simulation",
+      "mitigation": "Decentralized sequencing, time locks",
+      "runId": 1833
+    },
+    {
+      "timestamp": "2026-02-26T22:52:55.546Z",
+      "vector": "STORAGE_COLLISION_UPGRADE",
+      "name": "Proxy Storage Collision",
+      "severity": "CRITICAL",
+      "description": "Upgradeable proxy has storage collision vulnerability",
+      "discovered": false,
+      "testCode": "// Storage layout test",
+      "mitigation": "EIP-1967 storage slots, transparent proxies",
+      "runId": 1834
+    },
+    {
+      "timestamp": "2026-02-26T22:52:55.546Z",
+      "vector": "BRIDGE_FAKE_DEPOSIT",
+      "name": "BRIDGE_FAKE_DEPOSIT",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1835
+    },
+    {
+      "timestamp": "2026-02-26T22:52:55.546Z",
+      "vector": "INFLATION_ATTACK",
+      "name": "INFLATION_ATTACK",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1836
+    },
+    {
+      "timestamp": "2026-02-26T22:52:55.546Z",
+      "vector": "FLASH_LOAN_SANDWICH_ATTACK",
+      "name": "FLASH_LOAN_SANDWICH_ATTACK",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1837
+    },
+    {
+      "timestamp": "2026-02-26T22:52:55.546Z",
+      "vector": "UNAUTHORIZED_PAUSE",
+      "name": "UNAUTHORIZED_PAUSE",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1838
+    },
+    {
+      "timestamp": "2026-02-26T22:52:55.546Z",
+      "vector": "BRIDGE_TIMELock_BYPASS",
+      "name": "BRIDGE_TIMELock_BYPASS",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1839
+    },
+    {
+      "timestamp": "2026-02-26T22:52:55.546Z",
+      "vector": "ARITHMETIC_UNDERFLOW",
+      "name": "ARITHMETIC_UNDERFLOW",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1840
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "timestamp": "2026-02-26T22:52:55.546Z",
+      "vector": "REBASE_TOKEN_DRIFT",
+      "name": "REBASE_TOKEN_DRIFT",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1830
+    },
+    {
+      "timestamp": "2026-02-26T22:52:55.546Z",
+      "vector": "FLASH_LOAN_PRICE_MANIPULATION",
+      "name": "Flash Loan Oracle Manipulation",
+      "severity": "HIGH",
+      "description": "Attacker borrows flash loan to manipulate price oracle",
+      "discovered": true,
+      "testCode": "// Flash loan manipulation test",
+      "mitigation": "Time-weighted average prices, TWAP oracles",
+      "runId": 1831
+    },
+    {
+      "timestamp": "2026-02-26T22:52:55.546Z",
+      "vector": "STORAGE_COLLISION_UPGRADE",
+      "name": "Proxy Storage Collision",
+      "severity": "CRITICAL",
+      "description": "Upgradeable proxy has storage collision vulnerability",
+      "discovered": true,
+      "testCode": "// Storage layout test",
+      "mitigation": "EIP-1967 storage slots, transparent proxies",
+      "runId": 1832
+    },
+    {
+      "timestamp": "2026-02-26T22:52:55.546Z",
+      "vector": "BRIDGE_FAKE_DEPOSIT",
+      "name": "BRIDGE_FAKE_DEPOSIT",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1835
+    },
+    {
+      "timestamp": "2026-02-26T22:52:55.546Z",
+      "vector": "FLASH_LOAN_SANDWICH_ATTACK",
+      "name": "FLASH_LOAN_SANDWICH_ATTACK",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1837
+    }
+  ],
+  "contractsTested": [
+    "KarrotDexAggregator_v4.sol",
+    "KarrotProtocol.sol",
+    "pxAssetMinter.sol",
+    "SolanaVault.rs"
+  ],
+  "attackVectors": 42,
+  "notes": "Automated security testing in progress. Manual review required for all \"discovered\" vulnerabilities."
+}

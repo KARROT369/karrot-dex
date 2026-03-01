@@ -1,0 +1,173 @@
+{
+  "timestamp": "2026-02-27T10:29:03.840Z",
+  "hour": 6,
+  "testsRun": 13,
+  "vulnerabilitiesFound": 1,
+  "passRate": "92.31",
+  "tests": [
+    {
+      "timestamp": "2026-02-27T10:29:03.849Z",
+      "vector": "FLASH_LOAN_PRICE_MANIPULATION",
+      "name": "Flash Loan Oracle Manipulation",
+      "severity": "HIGH",
+      "description": "Attacker borrows flash loan to manipulate price oracle",
+      "discovered": false,
+      "testCode": "// Flash loan manipulation test",
+      "mitigation": "Time-weighted average prices, TWAP oracles",
+      "runId": 627
+    },
+    {
+      "timestamp": "2026-02-27T10:29:03.853Z",
+      "vector": "UNAUTHORIZED_PAUSE",
+      "name": "UNAUTHORIZED_PAUSE",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 628
+    },
+    {
+      "timestamp": "2026-02-27T10:29:03.854Z",
+      "vector": "BRIDGE_FAKE_DEPOSIT",
+      "name": "BRIDGE_FAKE_DEPOSIT",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 629
+    },
+    {
+      "timestamp": "2026-02-27T10:29:03.854Z",
+      "vector": "PROXY_DELEGATECALL_ATTACK",
+      "name": "PROXY_DELEGATECALL_ATTACK",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 630
+    },
+    {
+      "timestamp": "2026-02-27T10:29:03.854Z",
+      "vector": "STORAGE_SLOT_OVERWRITE",
+      "name": "STORAGE_SLOT_OVERWRITE",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 631
+    },
+    {
+      "timestamp": "2026-02-27T10:29:03.854Z",
+      "vector": "LIQUIDATION_CASCADING",
+      "name": "LIQUIDATION_CASCADING",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 632
+    },
+    {
+      "timestamp": "2026-02-27T10:29:03.854Z",
+      "vector": "UNAUTHORIZED_PAUSE",
+      "name": "UNAUTHORIZED_PAUSE",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 633
+    },
+    {
+      "timestamp": "2026-02-27T10:29:03.854Z",
+      "vector": "DEPEG_MANIPULATION",
+      "name": "DEPEG_MANIPULATION",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 634
+    },
+    {
+      "timestamp": "2026-02-27T10:29:03.854Z",
+      "vector": "DIVISION_BY_ZERO",
+      "name": "DIVISION_BY_ZERO",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 635
+    },
+    {
+      "timestamp": "2026-02-27T10:29:03.854Z",
+      "vector": "ERC777_HOOK_EXPLOIT",
+      "name": "ERC777_HOOK_EXPLOIT",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 636
+    },
+    {
+      "timestamp": "2026-02-27T10:29:03.854Z",
+      "vector": "STORAGE_SLOT_OVERWRITE",
+      "name": "STORAGE_SLOT_OVERWRITE",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 637
+    },
+    {
+      "timestamp": "2026-02-27T10:29:03.854Z",
+      "vector": "REENTRANCY_READ_ONLY",
+      "name": "REENTRANCY_READ_ONLY",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 638
+    },
+    {
+      "timestamp": "2026-02-27T10:29:03.854Z",
+      "vector": "BRIDGE_DOUBLE_SPEND",
+      "name": "BRIDGE_DOUBLE_SPEND",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 639
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "timestamp": "2026-02-27T10:29:03.854Z",
+      "vector": "ERC777_HOOK_EXPLOIT",
+      "name": "ERC777_HOOK_EXPLOIT",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 636
+    }
+  ],
+  "contractsTested": [
+    "KarrotDexAggregator_v4.sol",
+    "KarrotProtocol.sol",
+    "pxAssetMinter.sol",
+    "SolanaVault.rs"
+  ],
+  "attackVectors": 42,
+  "notes": "Automated security testing in progress. Manual review required for all \"discovered\" vulnerabilities."
+}

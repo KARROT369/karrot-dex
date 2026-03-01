@@ -1,0 +1,250 @@
+{
+  "timestamp": "2026-02-27T17:29:04.553Z",
+  "hour": 13,
+  "testsRun": 19,
+  "vulnerabilitiesFound": 2,
+  "passRate": "89.47",
+  "tests": [
+    {
+      "timestamp": "2026-02-27T17:29:04.563Z",
+      "vector": "MEV_SANDWICH_FRONT_RUN",
+      "name": "MEV_SANDWICH_FRONT_RUN",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1327
+    },
+    {
+      "timestamp": "2026-02-27T17:29:04.567Z",
+      "vector": "MEV_BACK_RUN",
+      "name": "MEV_BACK_RUN",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1328
+    },
+    {
+      "timestamp": "2026-02-27T17:29:04.567Z",
+      "vector": "ACCESS_CONTROL_BYPASS",
+      "name": "ACCESS_CONTROL_BYPASS",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1329
+    },
+    {
+      "timestamp": "2026-02-27T17:29:04.567Z",
+      "vector": "REENTRANCY_CROSS_FUNCTION",
+      "name": "Cross-Function Reentrancy",
+      "severity": "CRITICAL",
+      "description": "Attacker exploits state shared between functions",
+      "discovered": false,
+      "testCode": "// Reentrancy cross-function test logic",
+      "mitigation": "Mutex locks, ReentrancyGuard",
+      "runId": 1330
+    },
+    {
+      "timestamp": "2026-02-27T17:29:04.567Z",
+      "vector": "ACCESS_CONTROL_BYPASS",
+      "name": "ACCESS_CONTROL_BYPASS",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1331
+    },
+    {
+      "timestamp": "2026-02-27T17:29:04.567Z",
+      "vector": "GAS_GREEDING_BLOCK_STUFFING",
+      "name": "Block Stuffing Gas Griefing",
+      "severity": "MEDIUM",
+      "description": "Attacker fills blocks to delay transactions",
+      "discovered": false,
+      "testCode": "// Gas griefing simulation",
+      "mitigation": "Decentralized sequencing, time locks",
+      "runId": 1332
+    },
+    {
+      "timestamp": "2026-02-27T17:29:04.567Z",
+      "vector": "ORACLE_FRONT_RUNNING",
+      "name": "ORACLE_FRONT_RUNNING",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1333
+    },
+    {
+      "timestamp": "2026-02-27T17:29:04.567Z",
+      "vector": "REENTRANCY_CROSS_FUNCTION",
+      "name": "Cross-Function Reentrancy",
+      "severity": "CRITICAL",
+      "description": "Attacker exploits state shared between functions",
+      "discovered": false,
+      "testCode": "// Reentrancy cross-function test logic",
+      "mitigation": "Mutex locks, ReentrancyGuard",
+      "runId": 1334
+    },
+    {
+      "timestamp": "2026-02-27T17:29:04.567Z",
+      "vector": "ACCESS_CONTROL_BYPASS",
+      "name": "ACCESS_CONTROL_BYPASS",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1335
+    },
+    {
+      "timestamp": "2026-02-27T17:29:04.567Z",
+      "vector": "SIGNATURE_INVALID_RECOVERY",
+      "name": "SIGNATURE_INVALID_RECOVERY",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1336
+    },
+    {
+      "timestamp": "2026-02-27T17:29:04.567Z",
+      "vector": "FEE_ON_TRANSFER_DOUBLE_SPEND",
+      "name": "Fee-on-Transfer Double Spend",
+      "severity": "MEDIUM",
+      "description": "Contract fails to account for transfer fees",
+      "discovered": false,
+      "testCode": "// Fee-on-transfer test",
+      "mitigation": "Check balances before/after transfers",
+      "runId": 1337
+    },
+    {
+      "timestamp": "2026-02-27T17:29:04.567Z",
+      "vector": "ARITHMETIC_OVERFLOW",
+      "name": "ARITHMETIC_OVERFLOW",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1338
+    },
+    {
+      "timestamp": "2026-02-27T17:29:04.567Z",
+      "vector": "DEPEG_MANIPULATION",
+      "name": "DEPEG_MANIPULATION",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1339
+    },
+    {
+      "timestamp": "2026-02-27T17:29:04.567Z",
+      "vector": "LIQUIDATION_CASCADING",
+      "name": "LIQUIDATION_CASCADING",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1340
+    },
+    {
+      "timestamp": "2026-02-27T17:29:04.567Z",
+      "vector": "GAS_GREEDING_BLOCK_STUFFING",
+      "name": "Block Stuffing Gas Griefing",
+      "severity": "MEDIUM",
+      "description": "Attacker fills blocks to delay transactions",
+      "discovered": false,
+      "testCode": "// Gas griefing simulation",
+      "mitigation": "Decentralized sequencing, time locks",
+      "runId": 1341
+    },
+    {
+      "timestamp": "2026-02-27T17:29:04.567Z",
+      "vector": "FLASH_LOAN_OWNERSHIP_THEFT",
+      "name": "FLASH_LOAN_OWNERSHIP_THEFT",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1342
+    },
+    {
+      "timestamp": "2026-02-27T17:29:04.567Z",
+      "vector": "UNAUTHORIZED_BURN",
+      "name": "UNAUTHORIZED_BURN",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1343
+    },
+    {
+      "timestamp": "2026-02-27T17:29:04.567Z",
+      "vector": "STORAGE_COLLISION_UPGRADE",
+      "name": "Proxy Storage Collision",
+      "severity": "CRITICAL",
+      "description": "Upgradeable proxy has storage collision vulnerability",
+      "discovered": false,
+      "testCode": "// Storage layout test",
+      "mitigation": "EIP-1967 storage slots, transparent proxies",
+      "runId": 1344
+    },
+    {
+      "timestamp": "2026-02-27T17:29:04.567Z",
+      "vector": "DEPEG_MANIPULATION",
+      "name": "DEPEG_MANIPULATION",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1345
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "timestamp": "2026-02-27T17:29:04.563Z",
+      "vector": "MEV_SANDWICH_FRONT_RUN",
+      "name": "MEV_SANDWICH_FRONT_RUN",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1327
+    },
+    {
+      "timestamp": "2026-02-27T17:29:04.567Z",
+      "vector": "SIGNATURE_INVALID_RECOVERY",
+      "name": "SIGNATURE_INVALID_RECOVERY",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1336
+    }
+  ],
+  "contractsTested": [
+    "KarrotDexAggregator_v4.sol",
+    "KarrotProtocol.sol",
+    "pxAssetMinter.sol",
+    "SolanaVault.rs"
+  ],
+  "attackVectors": 42,
+  "notes": "Automated security testing in progress. Manual review required for all \"discovered\" vulnerabilities."
+}

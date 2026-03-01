@@ -1,0 +1,239 @@
+{
+  "timestamp": "2026-02-28T16:29:02.265Z",
+  "hour": 12,
+  "testsRun": 17,
+  "vulnerabilitiesFound": 3,
+  "passRate": "82.35",
+  "tests": [
+    {
+      "timestamp": "2026-02-28T16:29:02.266Z",
+      "vector": "SIGNATURE_REPLAY",
+      "name": "SIGNATURE_REPLAY",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1228
+    },
+    {
+      "timestamp": "2026-02-28T16:29:02.266Z",
+      "vector": "FLASH_LOAN_SANDWICH_ATTACK",
+      "name": "FLASH_LOAN_SANDWICH_ATTACK",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1229
+    },
+    {
+      "timestamp": "2026-02-28T16:29:02.266Z",
+      "vector": "BRIDGE_SIGNATURE_REPLAY",
+      "name": "BRIDGE_SIGNATURE_REPLAY",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1230
+    },
+    {
+      "timestamp": "2026-02-28T16:29:02.266Z",
+      "vector": "SIGNATURE_INVALID_RECOVERY",
+      "name": "SIGNATURE_INVALID_RECOVERY",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1231
+    },
+    {
+      "timestamp": "2026-02-28T16:29:02.266Z",
+      "vector": "GAS_LIMIT_MANIPULATION",
+      "name": "GAS_LIMIT_MANIPULATION",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1232
+    },
+    {
+      "timestamp": "2026-02-28T16:29:02.266Z",
+      "vector": "BRIDGE_DOUBLE_SPEND",
+      "name": "BRIDGE_DOUBLE_SPEND",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1233
+    },
+    {
+      "timestamp": "2026-02-28T16:29:02.266Z",
+      "vector": "FLASH_LOAN_ORACLE_MANIPULATION",
+      "name": "FLASH_LOAN_ORACLE_MANIPULATION",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1234
+    },
+    {
+      "timestamp": "2026-02-28T16:29:02.266Z",
+      "vector": "GAS_GREEDING_BLOCK_STUFFING",
+      "name": "Block Stuffing Gas Griefing",
+      "severity": "MEDIUM",
+      "description": "Attacker fills blocks to delay transactions",
+      "discovered": false,
+      "testCode": "// Gas griefing simulation",
+      "mitigation": "Decentralized sequencing, time locks",
+      "runId": 1235
+    },
+    {
+      "timestamp": "2026-02-28T16:29:02.266Z",
+      "vector": "SIGNATURE_MALLEABILITY",
+      "name": "SIGNATURE_MALLEABILITY",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1236
+    },
+    {
+      "timestamp": "2026-02-28T16:29:02.266Z",
+      "vector": "PRECISION_LOSS",
+      "name": "PRECISION_LOSS",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1237
+    },
+    {
+      "timestamp": "2026-02-28T16:29:02.266Z",
+      "vector": "MEV_SANDWICH_FRONT_RUN",
+      "name": "MEV_SANDWICH_FRONT_RUN",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1238
+    },
+    {
+      "timestamp": "2026-02-28T16:29:02.266Z",
+      "vector": "FLASH_LOAN_ORACLE_MANIPULATION",
+      "name": "FLASH_LOAN_ORACLE_MANIPULATION",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1239
+    },
+    {
+      "timestamp": "2026-02-28T16:29:02.266Z",
+      "vector": "SIGNATURE_MALLEABILITY",
+      "name": "SIGNATURE_MALLEABILITY",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1240
+    },
+    {
+      "timestamp": "2026-02-28T16:29:02.266Z",
+      "vector": "BRIDGE_DOUBLE_SPEND",
+      "name": "BRIDGE_DOUBLE_SPEND",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1241
+    },
+    {
+      "timestamp": "2026-02-28T16:29:02.266Z",
+      "vector": "BRIDGE_FAKE_DEPOSIT",
+      "name": "BRIDGE_FAKE_DEPOSIT",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1242
+    },
+    {
+      "timestamp": "2026-02-28T16:29:02.266Z",
+      "vector": "UNAUTHORIZED_MINT",
+      "name": "UNAUTHORIZED_MINT",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1243
+    },
+    {
+      "timestamp": "2026-02-28T16:29:02.266Z",
+      "vector": "BRIDGE_TIMELock_BYPASS",
+      "name": "BRIDGE_TIMELock_BYPASS",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1244
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "timestamp": "2026-02-28T16:29:02.266Z",
+      "vector": "SIGNATURE_REPLAY",
+      "name": "SIGNATURE_REPLAY",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1228
+    },
+    {
+      "timestamp": "2026-02-28T16:29:02.266Z",
+      "vector": "GAS_LIMIT_MANIPULATION",
+      "name": "GAS_LIMIT_MANIPULATION",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1232
+    },
+    {
+      "timestamp": "2026-02-28T16:29:02.266Z",
+      "vector": "BRIDGE_TIMELock_BYPASS",
+      "name": "BRIDGE_TIMELock_BYPASS",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1244
+    }
+  ],
+  "contractsTested": [
+    "KarrotDexAggregator_v4.sol",
+    "KarrotProtocol.sol",
+    "pxAssetMinter.sol",
+    "SolanaVault.rs"
+  ],
+  "attackVectors": 42,
+  "notes": "Automated security testing in progress. Manual review required for all \"discovered\" vulnerabilities."
+}

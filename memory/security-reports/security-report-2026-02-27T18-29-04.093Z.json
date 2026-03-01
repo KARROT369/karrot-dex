@@ -1,0 +1,184 @@
+{
+  "timestamp": "2026-02-27T18:29:04.093Z",
+  "hour": 14,
+  "testsRun": 13,
+  "vulnerabilitiesFound": 2,
+  "passRate": "84.62",
+  "tests": [
+    {
+      "timestamp": "2026-02-27T18:29:04.102Z",
+      "vector": "UNAUTHORIZED_BURN",
+      "name": "UNAUTHORIZED_BURN",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1427
+    },
+    {
+      "timestamp": "2026-02-27T18:29:04.106Z",
+      "vector": "GAS_GREEDING_BLOCK_STUFFING",
+      "name": "Block Stuffing Gas Griefing",
+      "severity": "MEDIUM",
+      "description": "Attacker fills blocks to delay transactions",
+      "discovered": false,
+      "testCode": "// Gas griefing simulation",
+      "mitigation": "Decentralized sequencing, time locks",
+      "runId": 1428
+    },
+    {
+      "timestamp": "2026-02-27T18:29:04.106Z",
+      "vector": "REENTRANCY_SINGLE_CALL",
+      "name": "Single-Call Reentrancy",
+      "severity": "CRITICAL",
+      "description": "Attacker re-enters contract during external call before state update",
+      "discovered": false,
+      "testCode": "\n      const attacker = await deployAttackerContract();\n      await attacker.attack({value: 1 ether});\n      const finalBalance = await victim.balanceOf(attacker);\n      expect(finalBalance).to.be.above(expectedBalance);\n    ",
+      "mitigation": "Use ReentrancyGuard or check-effects-interactions pattern",
+      "runId": 1429
+    },
+    {
+      "timestamp": "2026-02-27T18:29:04.106Z",
+      "vector": "PROXY_DELEGATECALL_ATTACK",
+      "name": "PROXY_DELEGATECALL_ATTACK",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1430
+    },
+    {
+      "timestamp": "2026-02-27T18:29:04.106Z",
+      "vector": "ARITHMETIC_UNDERFLOW",
+      "name": "ARITHMETIC_UNDERFLOW",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1431
+    },
+    {
+      "timestamp": "2026-02-27T18:29:04.106Z",
+      "vector": "MEV_SANDWICH_FRONT_RUN",
+      "name": "MEV_SANDWICH_FRONT_RUN",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1432
+    },
+    {
+      "timestamp": "2026-02-27T18:29:04.106Z",
+      "vector": "ARITHMETIC_UNDERFLOW",
+      "name": "ARITHMETIC_UNDERFLOW",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1433
+    },
+    {
+      "timestamp": "2026-02-27T18:29:04.106Z",
+      "vector": "MEV_SANDWICH_FRONT_RUN",
+      "name": "MEV_SANDWICH_FRONT_RUN",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1434
+    },
+    {
+      "timestamp": "2026-02-27T18:29:04.106Z",
+      "vector": "UNAUTHORIZED_PAUSE",
+      "name": "UNAUTHORIZED_PAUSE",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1435
+    },
+    {
+      "timestamp": "2026-02-27T18:29:04.106Z",
+      "vector": "DEPEG_MANIPULATION",
+      "name": "DEPEG_MANIPULATION",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1436
+    },
+    {
+      "timestamp": "2026-02-27T18:29:04.106Z",
+      "vector": "MEV_BACK_RUN",
+      "name": "MEV_BACK_RUN",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1437
+    },
+    {
+      "timestamp": "2026-02-27T18:29:04.106Z",
+      "vector": "REENTRANCY_CROSS_FUNCTION",
+      "name": "Cross-Function Reentrancy",
+      "severity": "CRITICAL",
+      "description": "Attacker exploits state shared between functions",
+      "discovered": false,
+      "testCode": "// Reentrancy cross-function test logic",
+      "mitigation": "Mutex locks, ReentrancyGuard",
+      "runId": 1438
+    },
+    {
+      "timestamp": "2026-02-27T18:29:04.106Z",
+      "vector": "BRIDGE_DOUBLE_SPEND",
+      "name": "BRIDGE_DOUBLE_SPEND",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1439
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "timestamp": "2026-02-27T18:29:04.106Z",
+      "vector": "MEV_SANDWICH_FRONT_RUN",
+      "name": "MEV_SANDWICH_FRONT_RUN",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1432
+    },
+    {
+      "timestamp": "2026-02-27T18:29:04.106Z",
+      "vector": "MEV_SANDWICH_FRONT_RUN",
+      "name": "MEV_SANDWICH_FRONT_RUN",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1434
+    }
+  ],
+  "contractsTested": [
+    "KarrotDexAggregator_v4.sol",
+    "KarrotProtocol.sol",
+    "pxAssetMinter.sol",
+    "SolanaVault.rs"
+  ],
+  "attackVectors": 42,
+  "notes": "Automated security testing in progress. Manual review required for all \"discovered\" vulnerabilities."
+}

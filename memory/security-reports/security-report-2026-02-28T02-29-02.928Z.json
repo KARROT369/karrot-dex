@@ -1,0 +1,140 @@
+{
+  "timestamp": "2026-02-28T02:29:02.928Z",
+  "hour": 22,
+  "testsRun": 10,
+  "vulnerabilitiesFound": 1,
+  "passRate": "90.00",
+  "tests": [
+    {
+      "timestamp": "2026-02-28T02:29:02.932Z",
+      "vector": "UNAUTHORIZED_MINT",
+      "name": "UNAUTHORIZED_MINT",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 2227
+    },
+    {
+      "timestamp": "2026-02-28T02:29:02.934Z",
+      "vector": "BRIDGE_DOUBLE_SPEND",
+      "name": "BRIDGE_DOUBLE_SPEND",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 2228
+    },
+    {
+      "timestamp": "2026-02-28T02:29:02.934Z",
+      "vector": "BRIDGE_FAKE_DEPOSIT",
+      "name": "BRIDGE_FAKE_DEPOSIT",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 2229
+    },
+    {
+      "timestamp": "2026-02-28T02:29:02.934Z",
+      "vector": "BRIDGE_TIMELock_BYPASS",
+      "name": "BRIDGE_TIMELock_BYPASS",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 2230
+    },
+    {
+      "timestamp": "2026-02-28T02:29:02.934Z",
+      "vector": "DIVISION_BY_ZERO",
+      "name": "DIVISION_BY_ZERO",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 2231
+    },
+    {
+      "timestamp": "2026-02-28T02:29:02.934Z",
+      "vector": "FEE_ON_TRANSFER_DOUBLE_SPEND",
+      "name": "Fee-on-Transfer Double Spend",
+      "severity": "MEDIUM",
+      "description": "Contract fails to account for transfer fees",
+      "discovered": false,
+      "testCode": "// Fee-on-transfer test",
+      "mitigation": "Check balances before/after transfers",
+      "runId": 2232
+    },
+    {
+      "timestamp": "2026-02-28T02:29:02.934Z",
+      "vector": "BRIDGE_DOUBLE_SPEND",
+      "name": "BRIDGE_DOUBLE_SPEND",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 2233
+    },
+    {
+      "timestamp": "2026-02-28T02:29:02.934Z",
+      "vector": "SIGNATURE_REPLAY",
+      "name": "SIGNATURE_REPLAY",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 2234
+    },
+    {
+      "timestamp": "2026-02-28T02:29:02.934Z",
+      "vector": "FLASH_LOAN_SANDWICH_ATTACK",
+      "name": "FLASH_LOAN_SANDWICH_ATTACK",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 2235
+    },
+    {
+      "timestamp": "2026-02-28T02:29:02.934Z",
+      "vector": "BRIDGE_FAKE_DEPOSIT",
+      "name": "BRIDGE_FAKE_DEPOSIT",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 2236
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "timestamp": "2026-02-28T02:29:02.934Z",
+      "vector": "DIVISION_BY_ZERO",
+      "name": "DIVISION_BY_ZERO",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 2231
+    }
+  ],
+  "contractsTested": [
+    "KarrotDexAggregator_v4.sol",
+    "KarrotProtocol.sol",
+    "pxAssetMinter.sol",
+    "SolanaVault.rs"
+  ],
+  "attackVectors": 42,
+  "notes": "Automated security testing in progress. Manual review required for all \"discovered\" vulnerabilities."
+}

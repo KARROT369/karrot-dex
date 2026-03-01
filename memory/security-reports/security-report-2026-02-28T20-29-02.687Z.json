@@ -1,0 +1,173 @@
+{
+  "timestamp": "2026-02-28T20:29:02.687Z",
+  "hour": 16,
+  "testsRun": 13,
+  "vulnerabilitiesFound": 1,
+  "passRate": "92.31",
+  "tests": [
+    {
+      "timestamp": "2026-02-28T20:29:02.689Z",
+      "vector": "ACCESS_CONTROL_BYPASS",
+      "name": "ACCESS_CONTROL_BYPASS",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1628
+    },
+    {
+      "timestamp": "2026-02-28T20:29:02.689Z",
+      "vector": "ORACLE_FRONT_RUNNING",
+      "name": "ORACLE_FRONT_RUNNING",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1629
+    },
+    {
+      "timestamp": "2026-02-28T20:29:02.689Z",
+      "vector": "INFLATION_ATTACK",
+      "name": "INFLATION_ATTACK",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1630
+    },
+    {
+      "timestamp": "2026-02-28T20:29:02.689Z",
+      "vector": "UNAUTHORIZED_MINT",
+      "name": "UNAUTHORIZED_MINT",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1631
+    },
+    {
+      "timestamp": "2026-02-28T20:29:02.689Z",
+      "vector": "REENTRANCY_READ_ONLY",
+      "name": "REENTRANCY_READ_ONLY",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1632
+    },
+    {
+      "timestamp": "2026-02-28T20:29:02.689Z",
+      "vector": "UNAUTHORIZED_PAUSE",
+      "name": "UNAUTHORIZED_PAUSE",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1633
+    },
+    {
+      "timestamp": "2026-02-28T20:29:02.689Z",
+      "vector": "PROXY_DELEGATECALL_ATTACK",
+      "name": "PROXY_DELEGATECALL_ATTACK",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1634
+    },
+    {
+      "timestamp": "2026-02-28T20:29:02.689Z",
+      "vector": "GAS_LIMIT_MANIPULATION",
+      "name": "GAS_LIMIT_MANIPULATION",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1635
+    },
+    {
+      "timestamp": "2026-02-28T20:29:02.689Z",
+      "vector": "SIGNATURE_INVALID_RECOVERY",
+      "name": "SIGNATURE_INVALID_RECOVERY",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1636
+    },
+    {
+      "timestamp": "2026-02-28T20:29:02.689Z",
+      "vector": "BRIDGE_SIGNATURE_REPLAY",
+      "name": "BRIDGE_SIGNATURE_REPLAY",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1637
+    },
+    {
+      "timestamp": "2026-02-28T20:29:02.689Z",
+      "vector": "REENTRANCY_READ_ONLY",
+      "name": "REENTRANCY_READ_ONLY",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1638
+    },
+    {
+      "timestamp": "2026-02-28T20:29:02.689Z",
+      "vector": "ORACLE_PRICE_FEED_ATTACK",
+      "name": "Stale Oracle Data Exploit",
+      "severity": "HIGH",
+      "description": "Contract uses stale price data",
+      "discovered": false,
+      "testCode": "// Oracle staleness test",
+      "mitigation": "Oracle freshness checks, multiple oracle sources",
+      "runId": 1639
+    },
+    {
+      "timestamp": "2026-02-28T20:29:02.689Z",
+      "vector": "DIVISION_BY_ZERO",
+      "name": "DIVISION_BY_ZERO",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1640
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "timestamp": "2026-02-28T20:29:02.689Z",
+      "vector": "ORACLE_FRONT_RUNNING",
+      "name": "ORACLE_FRONT_RUNNING",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1629
+    }
+  ],
+  "contractsTested": [
+    "KarrotDexAggregator_v4.sol",
+    "KarrotProtocol.sol",
+    "pxAssetMinter.sol",
+    "SolanaVault.rs"
+  ],
+  "attackVectors": 42,
+  "notes": "Automated security testing in progress. Manual review required for all \"discovered\" vulnerabilities."
+}

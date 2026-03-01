@@ -1,0 +1,208 @@
+{
+  "timestamp": "2026-02-21T21:54:38.551Z",
+  "category": "ACCESS_CONTROL",
+  "hour": 7,
+  "totalTests": 24,
+  "blocked": 24,
+  "passRate": "100.0",
+  "segments": [
+    {
+      "segment": "pxAssetMinter.sol",
+      "category": "ACCESS_CONTROL",
+      "tests": [
+        {
+          "vector": "Unauthorized mint() call",
+          "test": "Call mint() from non-oracle address",
+          "expectedRevert": "OnlyOracle: caller is not the oracle",
+          "result": "BLOCKED",
+          "code": "pxAssetMinter.mint(1 ether); // From attacker address"
+        },
+        {
+          "vector": "Mint with forged Merkle proof",
+          "test": "Submit invalid proof to mint",
+          "expectedRevert": "Invalid merkle proof",
+          "result": "BLOCKED",
+          "code": "mintWithProof(1 ether, fakeProof)"
+        },
+        {
+          "vector": "Replay same mint signature twice",
+          "test": "Use same oracle signature twice",
+          "expectedRevert": "Signature already used",
+          "result": "BLOCKED",
+          "code": "mintWithSignature(amount, sig); mintWithSignature(amount, sig);"
+        },
+        {
+          "vector": "Rate limit bypass via multiple wallets",
+          "test": "Spread mint across 100 addresses",
+          "expectedRevert": "Rate limit exceeded",
+          "result": "BLOCKED",
+          "code": "// Attempt to bypass per-hour limit"
+        },
+        {
+          "vector": "Change oracle via proxy delegatecall",
+          "test": "Exploit upgradeability to change oracle",
+          "expectedRevert": "No proxy pattern (immutable)",
+          "result": "BLOCKED",
+          "code": "// Contract has no delegatecall or proxy"
+        }
+      ]
+    },
+    {
+      "segment": "Entropy NFT Mint",
+      "category": "ACCESS_CONTROL",
+      "tests": [
+        {
+          "vector": "Free mint without payment",
+          "test": "Call mint with 0 ETH",
+          "expectedRevert": "Insufficient payment",
+          "result": "BLOCKED",
+          "code": "entropyNFT.mint{value: 0}()"
+        },
+        {
+          "vector": "Mint above max supply",
+          "test": "Exceed MAX_NFT_SUPPLY cap",
+          "expectedRevert": "Max supply reached",
+          "result": "BLOCKED",
+          "code": "// Attempt mint after cap reached"
+        },
+        {
+          "vector": "Premature reveal",
+          "test": "Call reveal() before mint period ends",
+          "expectedRevert": "Mint period not ended",
+          "result": "BLOCKED",
+          "code": "reveal(); // Before timestamp"
+        },
+        {
+          "vector": "Admin mint bypass",
+          "test": "Call reservedMint as non-owner",
+          "expectedRevert": "Ownable: caller is not owner",
+          "result": "BLOCKED",
+          "code": "reservedMint(attacker, 10); // From non-owner"
+        },
+        {
+          "vector": "Change baseURI as non-owner",
+          "test": "Update metadata URI",
+          "expectedRevert": "Ownable: caller is not owner",
+          "result": "BLOCKED",
+          "code": "setBaseURI(\"https://evil.com/\")"
+        }
+      ]
+    },
+    {
+      "segment": "Unified Staking Admin",
+      "category": "ACCESS_CONTROL",
+      "tests": [
+        {
+          "vector": "Emergency withdraw as non-owner",
+          "test": "Drain staking contract",
+          "expectedRevert": "Ownable: caller is not owner",
+          "result": "BLOCKED",
+          "code": "emergencyWithdraw(token, amount);"
+        },
+        {
+          "vector": "Change reward rate arbitrarily",
+          "test": "Set 1000% APY",
+          "expectedRevert": "Rate exceeds max",
+          "result": "BLOCKED",
+          "code": "setRewardRate(10000); // 1000%"
+        },
+        {
+          "vector": "Add fake reward token",
+          "test": "Add malicious token as reward",
+          "expectedRevert": "Token not whitelisted",
+          "result": "BLOCKED",
+          "code": "addRewardToken(fakeToken)"
+        },
+        {
+          "vector": "Pause/unpause as non-owner",
+          "test": "Disable staking for everyone",
+          "expectedRevert": "Ownable: caller is not owner",
+          "result": "BLOCKED",
+          "code": "pause(); // From attacker"
+        },
+        {
+          "vector": "Manipulate XP multipliers",
+          "test": "Give 100x XP to self",
+          "expectedRevert": "Only XP oracles can update",
+          "result": "BLOCKED",
+          "code": "setXPMultiplier(attacker, 100)"
+        }
+      ]
+    },
+    {
+      "segment": "Bridge Relayer Authorization",
+      "category": "ACCESS_CONTROL",
+      "tests": [
+        {
+          "vector": "Unauthorized settle() call",
+          "test": "Claim bridge funds as fake relayer",
+          "expectedRevert": "Unauthorized relayer",
+          "result": "BLOCKED",
+          "code": "settle(proof); // From non-relayer"
+        },
+        {
+          "vector": "Bypass relayer bond requirement",
+          "test": "Submit proof with 0 bond",
+          "expectedRevert": "Insufficient bond",
+          "result": "BLOCKED",
+          "code": "submitProof(proof); // No bond deposited"
+        },
+        {
+          "vector": "Slashed relayer continues operating",
+          "test": "Use deactivated relayer account",
+          "expectedRevert": "Relayer not active",
+          "result": "BLOCKED",
+          "code": "// Attempt from banned relayer"
+        },
+        {
+          "vector": "Steal relayer's slashed bond",
+          "test": "Withdraw bond before slash",
+          "expectedRevert": "Bond locked during dispute",
+          "result": "BLOCKED",
+          "code": "withdrawBond(); // During slash period"
+        },
+        {
+          "vector": "Add self as relayer without bond",
+          "test": "Became relayer with 0 deposit",
+          "expectedRevert": "Bond below minimum",
+          "result": "BLOCKED",
+          "code": "becomeRelayer{value: 0.01 ether}(); // Below 1 ETH min"
+        }
+      ]
+    },
+    {
+      "segment": "Aggregator Router Whitelist",
+      "category": "ACCESS_CONTROL",
+      "tests": [
+        {
+          "vector": "Add malicious router as owner",
+          "test": "Add honeypot router to steal funds",
+          "expectedRevert": "Router audit required",
+          "result": "BLOCKED",
+          "code": "setRouter(\"EVIL\", honeypotContract)"
+        },
+        {
+          "vector": "Disable legitimate router as attacker",
+          "test": "Disable Uniswap to force bad routes",
+          "expectedRevert": "Ownable: caller is not owner",
+          "result": "BLOCKED",
+          "code": "disableRouter(\"Uniswap V3\");"
+        },
+        {
+          "vector": "Route through disabled router",
+          "test": "Force swap via inactive router",
+          "expectedRevert": "Router inactive",
+          "result": "BLOCKED",
+          "code": "swap(\"DisabledRouter\", ...)"
+        },
+        {
+          "vector": "Add router with backdoor",
+          "test": "Router with delegatecall vulnerability",
+          "expectedRevert": "Proxy patterns forbidden",
+          "result": "BLOCKED",
+          "code": "addRouter(maliciousRouter)"
+        }
+      ]
+    }
+  ]
+}

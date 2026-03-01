@@ -1,0 +1,162 @@
+{
+  "timestamp": "2026-02-28T22:29:02.730Z",
+  "hour": 18,
+  "testsRun": 12,
+  "vulnerabilitiesFound": 1,
+  "passRate": "91.67",
+  "tests": [
+    {
+      "timestamp": "2026-02-28T22:29:02.731Z",
+      "vector": "FLASH_LOAN_SANDWICH_ATTACK",
+      "name": "FLASH_LOAN_SANDWICH_ATTACK",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1828
+    },
+    {
+      "timestamp": "2026-02-28T22:29:02.731Z",
+      "vector": "FLASH_LOAN_PRICE_MANIPULATION",
+      "name": "Flash Loan Oracle Manipulation",
+      "severity": "HIGH",
+      "description": "Attacker borrows flash loan to manipulate price oracle",
+      "discovered": false,
+      "testCode": "// Flash loan manipulation test",
+      "mitigation": "Time-weighted average prices, TWAP oracles",
+      "runId": 1829
+    },
+    {
+      "timestamp": "2026-02-28T22:29:02.731Z",
+      "vector": "REBASE_TOKEN_DRIFT",
+      "name": "REBASE_TOKEN_DRIFT",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1830
+    },
+    {
+      "timestamp": "2026-02-28T22:29:02.731Z",
+      "vector": "ORACLE_PRICE_FEED_ATTACK",
+      "name": "Stale Oracle Data Exploit",
+      "severity": "HIGH",
+      "description": "Contract uses stale price data",
+      "discovered": false,
+      "testCode": "// Oracle staleness test",
+      "mitigation": "Oracle freshness checks, multiple oracle sources",
+      "runId": 1831
+    },
+    {
+      "timestamp": "2026-02-28T22:29:02.731Z",
+      "vector": "FLASH_LOAN_PRICE_MANIPULATION",
+      "name": "Flash Loan Oracle Manipulation",
+      "severity": "HIGH",
+      "description": "Attacker borrows flash loan to manipulate price oracle",
+      "discovered": false,
+      "testCode": "// Flash loan manipulation test",
+      "mitigation": "Time-weighted average prices, TWAP oracles",
+      "runId": 1832
+    },
+    {
+      "timestamp": "2026-02-28T22:29:02.731Z",
+      "vector": "ORACLE_PRICE_FEED_ATTACK",
+      "name": "Stale Oracle Data Exploit",
+      "severity": "HIGH",
+      "description": "Contract uses stale price data",
+      "discovered": false,
+      "testCode": "// Oracle staleness test",
+      "mitigation": "Oracle freshness checks, multiple oracle sources",
+      "runId": 1833
+    },
+    {
+      "timestamp": "2026-02-28T22:29:02.731Z",
+      "vector": "FEE_ON_TRANSFER_DOUBLE_SPEND",
+      "name": "Fee-on-Transfer Double Spend",
+      "severity": "MEDIUM",
+      "description": "Contract fails to account for transfer fees",
+      "discovered": false,
+      "testCode": "// Fee-on-transfer test",
+      "mitigation": "Check balances before/after transfers",
+      "runId": 1834
+    },
+    {
+      "timestamp": "2026-02-28T22:29:02.731Z",
+      "vector": "ORACLE_FRONT_RUNNING",
+      "name": "ORACLE_FRONT_RUNNING",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1835
+    },
+    {
+      "timestamp": "2026-02-28T22:29:02.731Z",
+      "vector": "UNAUTHORIZED_MINT",
+      "name": "UNAUTHORIZED_MINT",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1836
+    },
+    {
+      "timestamp": "2026-02-28T22:29:02.731Z",
+      "vector": "METAMORPHIC_CONTRACT",
+      "name": "METAMORPHIC_CONTRACT",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1837
+    },
+    {
+      "timestamp": "2026-02-28T22:29:02.731Z",
+      "vector": "STORAGE_SLOT_OVERWRITE",
+      "name": "STORAGE_SLOT_OVERWRITE",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1838
+    },
+    {
+      "timestamp": "2026-02-28T22:29:02.731Z",
+      "vector": "GAS_GREEDING_BLOCK_STUFFING",
+      "name": "Block Stuffing Gas Griefing",
+      "severity": "MEDIUM",
+      "description": "Attacker fills blocks to delay transactions",
+      "discovered": true,
+      "testCode": "// Gas griefing simulation",
+      "mitigation": "Decentralized sequencing, time locks",
+      "runId": 1839
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "timestamp": "2026-02-28T22:29:02.731Z",
+      "vector": "GAS_GREEDING_BLOCK_STUFFING",
+      "name": "Block Stuffing Gas Griefing",
+      "severity": "MEDIUM",
+      "description": "Attacker fills blocks to delay transactions",
+      "discovered": true,
+      "testCode": "// Gas griefing simulation",
+      "mitigation": "Decentralized sequencing, time locks",
+      "runId": 1839
+    }
+  ],
+  "contractsTested": [
+    "KarrotDexAggregator_v4.sol",
+    "KarrotProtocol.sol",
+    "pxAssetMinter.sol",
+    "SolanaVault.rs"
+  ],
+  "attackVectors": 42,
+  "notes": "Automated security testing in progress. Manual review required for all \"discovered\" vulnerabilities."
+}

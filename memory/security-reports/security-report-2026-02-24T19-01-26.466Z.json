@@ -1,0 +1,184 @@
+{
+  "timestamp": "2026-02-24T19:01:26.466Z",
+  "hour": 15,
+  "testsRun": 14,
+  "vulnerabilitiesFound": 1,
+  "passRate": "92.86",
+  "tests": [
+    {
+      "timestamp": "2026-02-24T19:01:26.470Z",
+      "vector": "STORAGE_COLLISION_UPGRADE",
+      "name": "Proxy Storage Collision",
+      "severity": "CRITICAL",
+      "description": "Upgradeable proxy has storage collision vulnerability",
+      "discovered": false,
+      "testCode": "// Storage layout test",
+      "mitigation": "EIP-1967 storage slots, transparent proxies",
+      "runId": 1524
+    },
+    {
+      "timestamp": "2026-02-24T19:01:26.472Z",
+      "vector": "INFLATION_ATTACK",
+      "name": "INFLATION_ATTACK",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1525
+    },
+    {
+      "timestamp": "2026-02-24T19:01:26.472Z",
+      "vector": "ORACLE_FRONT_RUNNING",
+      "name": "ORACLE_FRONT_RUNNING",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1526
+    },
+    {
+      "timestamp": "2026-02-24T19:01:26.472Z",
+      "vector": "ORACLE_PRICE_FEED_ATTACK",
+      "name": "Stale Oracle Data Exploit",
+      "severity": "HIGH",
+      "description": "Contract uses stale price data",
+      "discovered": false,
+      "testCode": "// Oracle staleness test",
+      "mitigation": "Oracle freshness checks, multiple oracle sources",
+      "runId": 1527
+    },
+    {
+      "timestamp": "2026-02-24T19:01:26.472Z",
+      "vector": "ARITHMETIC_OVERFLOW",
+      "name": "ARITHMETIC_OVERFLOW",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1528
+    },
+    {
+      "timestamp": "2026-02-24T19:01:26.472Z",
+      "vector": "STALE_ORACLE_DATA",
+      "name": "STALE_ORACLE_DATA",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1529
+    },
+    {
+      "timestamp": "2026-02-24T19:01:26.472Z",
+      "vector": "UNAUTHORIZED_MINT",
+      "name": "UNAUTHORIZED_MINT",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1530
+    },
+    {
+      "timestamp": "2026-02-24T19:01:26.472Z",
+      "vector": "STORAGE_COLLISION_UPGRADE",
+      "name": "Proxy Storage Collision",
+      "severity": "CRITICAL",
+      "description": "Upgradeable proxy has storage collision vulnerability",
+      "discovered": false,
+      "testCode": "// Storage layout test",
+      "mitigation": "EIP-1967 storage slots, transparent proxies",
+      "runId": 1531
+    },
+    {
+      "timestamp": "2026-02-24T19:01:26.472Z",
+      "vector": "MEV_SANDWICH_FRONT_RUN",
+      "name": "MEV_SANDWICH_FRONT_RUN",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1532
+    },
+    {
+      "timestamp": "2026-02-24T19:01:26.472Z",
+      "vector": "METAMORPHIC_CONTRACT",
+      "name": "METAMORPHIC_CONTRACT",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1533
+    },
+    {
+      "timestamp": "2026-02-24T19:01:26.472Z",
+      "vector": "METAMORPHIC_CONTRACT",
+      "name": "METAMORPHIC_CONTRACT",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1534
+    },
+    {
+      "timestamp": "2026-02-24T19:01:26.472Z",
+      "vector": "MEV_SANDWICH_FRONT_RUN",
+      "name": "MEV_SANDWICH_FRONT_RUN",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1535
+    },
+    {
+      "timestamp": "2026-02-24T19:01:26.472Z",
+      "vector": "UNAUTHORIZED_BURN",
+      "name": "UNAUTHORIZED_BURN",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1536
+    },
+    {
+      "timestamp": "2026-02-24T19:01:26.472Z",
+      "vector": "SIGNATURE_MALLEABILITY",
+      "name": "SIGNATURE_MALLEABILITY",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1537
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "timestamp": "2026-02-24T19:01:26.472Z",
+      "vector": "ORACLE_FRONT_RUNNING",
+      "name": "ORACLE_FRONT_RUNNING",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1526
+    }
+  ],
+  "contractsTested": [
+    "KarrotDexAggregator_v4.sol",
+    "KarrotProtocol.sol",
+    "pxAssetMinter.sol",
+    "SolanaVault.rs"
+  ],
+  "attackVectors": 42,
+  "notes": "Automated security testing in progress. Manual review required for all \"discovered\" vulnerabilities."
+}

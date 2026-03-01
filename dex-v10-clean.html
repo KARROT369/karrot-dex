@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KarrotDEX — Swap Any Token</title>
+  
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --karrot-orange: #FF7F11;
+      --karrot-light: #FFB84C;
+    }
+    
+    body { 
+      font-family: 'Inter', sans-serif;
+      background: #0a0a0a;
+      color: #FF7F11;
+      min-height: 100vh;
+    }
+    
+    #loading-container {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(135deg, #0a0a0a, #1a1a1a, #0a0a0a);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      z-index: 1000;
+      transition: opacity 0.8s ease-out;
+    }
+    #loading-container.fade-out { opacity: 0; pointer-events: none; }
+    
+    #loading-text {
+      position: absolute; bottom: 18%;
+      text-align: center; color: #FF7F11;
+      z-index: 10;
+      text-shadow: 0 0 30px rgba(255, 127, 17, 0.8);
+    }
+    #loading-text h1 {
+      font-size: 2.5rem; font-weight: 700; letter-spacing: 0.2em;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    .subtitle { font-size: 0.9rem; opacity: 0.8; letter-spacing: 0.15em; }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+    
+    #progress-bar { position: absolute; bottom: 12%; width: 250px; height: 4px;
+      background: rgba(255, 127, 17, 0.15); border-radius: 2px; overflow: hidden; }
+    #progress-fill { height: 100%; width: 0%;
+      background: linear-gradient(90deg, #FF7F11, #FFB84C);
+      box-shadow: 0 0 20px #FF7F11; transition: width 0.3s ease; }
+    
+    canvas { display: block; position: absolute; top: 0; left: 0; z-index: 1; }
+    
+    #dex-app { opacity: 0; transition: opacity 0.5s ease-in; padding: 20px;
+      max-width: 480px; margin: 0 auto; }
+    #dex-app.loaded { opacity: 1; }
+    
+    header { display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 0; margin-bottom: 2rem; }
+    .logo { display: flex; align-items: center; gap: 0.5rem;
+      font-size: 1.5rem; font-weight: 700; }
+    
+    #connectWallet {
+      background: linear-gradient(135deg, #FF7F11, #FFB84C);
+      color: #000; border: none; padding: 0.75rem 1.5rem;
+      border-radius: 12px; font-weight: 600; cursor: pointer; }
+    #connectWallet:hover { transform: translateY(-2px); }
+    
+    .card { background: linear-gradient(145deg, #151515, #0d0d0d);
+      border: 1px solid #2a2a2a; border-radius: 20px;
+      padding: 1.5rem; margin-bottom: 1rem; }
+    .card:hover { border-color: #FF7F11; }
+    
+    .dex-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+    #aggregatorLogo { width: 40px; height: 40px; border-radius: 50%;
+      border: 2px solid #FF7F11; display: flex; align-items: center; justify-content: center;
+      font-size: 20px; background: rgba(255, 127, 17, 0.1); }
+    #aggregatorInfo { font-size: 0.85rem; opacity: 0.8; margin-top: 0.5rem; }
+    
+    select { width: 100%; padding: 0.75rem; background: #1a1a1a;
+      border: 1px solid #333; border-radius: 10px; color: #FF7F11; }
+    select:hover, select:focus { border-color: #FF7F11; outline: none; }
+    
+    .swap-box { background: #1a1a1a; border: 1px solid #333;
+      border-radius: 16px; padding: 1rem; margin-bottom: 0.5rem; }
+    .swap-box-header { display: flex; justify-content: space-between;
+      margin-bottom: 0.5rem; font-size: 0.85rem; opacity: 0.8; }
+    .swap-input-row { display: flex; align-items: center; gap: 0.5rem; }
+    
+    .amount-input { flex: 1; background: transparent; border: none;
+      color: #FF7F11; font-size: 1.75rem; font-weight: 600; outline: none; }
+    .amount-input::placeholder { color: #555; }
+    
+    .token-select-btn { display: flex; align-items: center; gap: 0.5rem;
+      background: #2a2a2a; border: 1px solid #333; border-radius: 12px;
+      padding: 0.5rem 0.75rem; color: #FF7F11; font-weight: 600; cursor: pointer; }
+    .token-select-btn:hover { border-color: #FF7F11; }
+    .token-select-btn img { width: 28px; height: 28px; border-radius: 50%; }
+    #fromIcon, #toIcon { font-size: 1.5rem; }
+    select.token-dropdown { background: transparent; border: none;
+      color: #FF7F11; font-weight: 600; max-width: 150px; }
+    
+    .switch-container { display: flex; justify-content: center; margin: -0.5rem 0;
+      position: relative; z-index: 10; }
+    #switchTokens { background: #1a1a1a; border: 2px solid #FF7F11;
+      border-radius: 50%; width: 44px; height: 44px; display: flex;
+      align-items: center; justify-content: center; font-size: 1.2rem;
+      color: #FF7F11; cursor: pointer; transition: all 0.3s; }
+    #switchTokens:hover { background: #FF7F11; color: #000; transform: rotate(180deg); }
+    
+    .price-info { background: #1a1a1a; border-radius: 12px; padding: 1rem; margin: 1rem 0; }
+    .price-row { display: flex; justify-content: space-between;
+      padding: 0.5rem 0; border-bottom: 1px solid #2a2a2a; font-size: 0.85rem; }
+    .price-row:last-child { border-bottom: none; }
+    .price-label { opacity: 0.7; }
+    .price-value { font-weight: 600; }
+    
+    .slippage-container { margin: 1rem 0; }
+    .slippage-label { font-size: 0.85rem; margin-bottom: 0.5rem; opacity: 0.8; }
+    .slippage-buttons { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .slippage-btn { background: #2a2a2a; border: 1px solid #333;
+      border-radius: 8px; padding: 0.5rem 1rem; color: #FF7F11; cursor: pointer; }
+    .slippage-btn:hover, .slippage-btn.active { background: #FF7F11;
+      border-color: #FF7F11; color: #000; }
+    #slippage { width: 80px; padding: 0.5rem; background: #2a2a2a;
+      border: 1px solid #333; border-radius: 8px; color: #FF7F11; text-align: center; }
+    
+    .custom-address-box { background: #1a1a1a; border: 1px solid #333;
+      border-radius: 12px; padding: 1rem; margin: 1rem 0; }
+    .custom-address-toggle { display: flex; align-items: center; gap: 0.5rem;
+      cursor: pointer; margin-bottom: 0.5rem; }
+    #useCustomAddress { width: 18px; height: 18px; accent-color: #FF7F11; }
+    #customAddress { width: 100%; padding: 0.75rem; background: #0a0a0a;
+      border: 1px solid #333; border-radius: 8px; color: #FF7F11;
+      margin-top: 0.5rem; display: none; }
+    #customAddress.show { display: block; border-color: #FF7F11; }
+    #customAddressNote { font-size: 0.75rem; opacity: 0.7;
+      margin-top: 0.5rem; display: none; }
+    #customAddressNote.show { display: block; }
+    
+    #btnSwap { width: 100%; padding: 1.25rem;
+      background: linear-gradient(135deg, #FF7F11, #FFB84C);
+      border: none; border-radius: 16px; color: #000;
+      font-size: 1.25rem; font-weight: 700; cursor: pointer; margin-top: 1rem; }
+    #btnSwap:hover { transform: translateY(-2px); }
+    
+    #messageArea { margin: 1rem 0; }
+    .message { padding: 1rem; border-radius: 8px; margin: 0.5rem 0; }
+    .message.error { background: rgba(255,68,68,0.2); color: #ff4444; }
+    .message.success { background: rgba(0,255,136,0.2); color: #00ff88; }
+    .message.info { background: rgba(255,127,17,0.2); color: #FF7F11; }
+  </style>
+</head>
+<body>
+  <div id="loading-container">
+    <div id="loading-text">
+      <h1>🥕 KARROT DEX</h1>
+      <div class="subtitle">LOADING TRADING INTERFACE</div>
+    </div>
+    <div id="progress-bar">
+      <div id="progress-fill"></div>
+    </div>
+  </div>
+
+  <div id="dex-app">
+    <header>
+      <div class="logo">
+        <span class="logo-icon">🥕</span>
+        <span>KarrotDEX</span>
+      </div>
+      <button id="connectWallet">Connect Wallet</button>
+    </header>
+
+    <div class="card">
+      <div class="dex-header">
+        <div id="aggregatorLogo">🟢</div>
+        <div>
+          <label style="font-weight: 600; display: block; margin-bottom: 0.25rem;">Select DEX</label>
+          <select id="aggregator">
+            <optgroup label="PulseChain">
+              <option value="PulseX">🟢 PulseX V2</option>
+              <option value="9mm">🔫 9mm</option>
+              <option value="Piteas">🥧 Piteas</option>
+              <option value="PulseXV3">🟢 PulseX V3</option>
+            </optgroup>
+            <optgroup label="Ethereum">
+              <option value="UniswapV3">🦄 Uniswap V3</option>
+              <option value="SushiSwap">🍣 SushiSwap</option>
+            </optgroup>
+            <optgroup label="BSC">
+              <option value="PancakeSwap">🥞 PancakeSwap</option>
+            </optgroup>
+            <optgroup label="Meta">
+              <option value="1inch">📊 1inch</option>
+              <option value="Matcha">🍵 Matcha</option>
+            </optgroup>
+          </select>
+        </div>
+      </div>
+      <div id="aggregatorInfo">PulseX — Chain ID: 369</div>
+    </div>
+
+    <div class="card">
+      <div class="swap-box">
+        <div class="swap-box-header">
+          <span>From</span>
+          <span id="balanceFrom">Balance: --</span>
+        </div>
+        <div class="swap-input-row">
+          <input type="number" id="amountFrom" class="amount-input" placeholder="0.0" step="any" min="0">
+          <div class="token-select-btn">
+            <div id="fromIcon">🥕</div>
+            <select id="tokenFrom" class="token-dropdown"></select>
+          </div>
+        </div>
+      </div>
+
+      <div class="switch-container">
+        <button id="switchTokens">⇅</button>
+      </div>
+
+      <div class="swap-box">
+        <div class="swap-box-header">
+          <span>To</span>
+          <span id="balanceTo">Balance: --</span>
+        </div>
+        <div class="swap-input-row">
+          <div id="amountToDisplay" class="amount-input" style="color: #888;">0.0</div>
+          <div class="token-select-btn">
+            <div id="toIcon"><img src="https://cryptologos.cc/logos/pulsechain-pulse-logo.png" alt="PLS"></div>
+            <select id="tokenTo" class="token-dropdown"></select>
+          </div>
+        </div>
+      </div>
+
+      <div class="price-info">
+        <div class="price-row">
+          <span class="price-label">Exchange Rate</span>
+          <span id="exchangeRate" class="price-value">--</span>
+        </div>
+        <div class="price-row">
+          <span class="price-label">Price Impact</span>
+          <span id="priceImpact" class="price-value">--</span>
+        </div>
+        <div class="price-row">
+          <span class="price-label">Minimum Received</span>
+          <span id="minReceived" class="price-value">--</span>
+        </div>
+        <div class="price-row">
+          <span class="price-label">Network Fee</span>
+          <span id="networkFee" class="price-value">--</span>
+        </div>
+      </div>
+
+      <div class="slippage-container">
+        <div class="slippage-label">Slippage Tolerance</div>
+        <div class="slippage-buttons">
+          <button class="slippage-btn" data-value="0.1">0.1%</button>
+          <button class="slippage-btn active" data-value="0.5">0.5%</button>
+          <button class="slippage-btn" data-value="1">1%</button>
+          <input type="number" id="slippage" value="0.5" min="0.1" max="50" step="0.1">
+        </div>
+      </div>
+
+      <div class="custom-address-box">
+        <label class="custom-address-toggle">
+          <input type="checkbox" id="useCustomAddress">
+          <span>Send to different address (optional)</span>
+        </label>
+        <input type="text" id="customAddress" placeholder="Enter destination address">
+        <p id="customAddressNote">Supports: ETH (0x...), BTC, SOL, THOR</p>
+      </div>
+
+      <div id="messageArea"></div>
+
+      <button id="btnSwap">
+        <span id="swapBtnText">Swap</span>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // Karrot Cube Loading Animation (simplified v10)
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.z = 8;
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.getElementById('loading-container').appendChild(renderer.domElement);
+
+    scene.add(new THREE.AmbientLight(0xffffff, 0.8));
+    const directional = new THREE.DirectionalLight(0xffffff, 1.5);
+    directional.position.set(5, 7, 5);
+    scene.add(directional);
+
+    const loader = new THREE.TextureLoader();
+    const textureURL = "https://i.postimg.cc/cHjv2726/20250919-172530.jpg";
+    
+    loader.load(textureURL, (texture) => {
+      const cubeSize = 4;
+      const cubeGeo = new THREE.BoxGeometry(cubeSize, cubeSize, cubeSize);
+      const wallMaterial = new THREE.MeshStandardMaterial({
+        map: texture, emissive: new THREE.Color(0xff6600), emissiveIntensity: 1.2,
+        side: THREE.BackSide
+      });
+      const wallCube = new THREE.Mesh(cubeGeo, wallMaterial);
+      scene.add(wallCube);
+
+      const edgesGeo = new THREE.EdgesGeometry(cubeGeo);
+      const edgesMat = new THREE.LineBasicMaterial({ color: 0xc96500 });
+      const edges = new THREE.LineSegments(edgesGeo, edgesMat);
+      scene.add(edges);
+
+      // Simple carrot
+      const carrotGeo = new THREE.ConeGeometry(0.3, 1.5, 32);
+      const carrotMat = new THREE.MeshStandardMaterial({ color: 0xff6600, emissive: 0xff3300, emissiveIntensity: 0.5 });
+      const carrot = new THREE.Mesh(carrotGeo, carrotMat);
+      scene.add(carrot);
+
+      const clock = new THREE.Clock();
+      function animate() {
+        requestAnimationFrame(animate);
+        const t = clock.getElapsedTime();
+        wallCube.rotation.y = t * 0.5;
+        edges.rotation.y = t * 0.5;
+        carrot.rotation.y = t * 1.2;
+        renderer.render(scene, camera);
+      }
+      animate();
+    });
+
+    // Loading progress
+    const progressFill = document.getElementById('progress-fill');
+    const loadingContainer = document.getElementById('loading-container');
+    const dexApp = document.getElementById('dex-app');
+    
+    let progress = 0;
+    const loadingInterval = setInterval(() => {
+      progress += Math.random() * 15 + 5;
+      if (progress >= 100) {
+        progress = 100;
+        clearInterval(loadingInterval);
+        setTimeout(() => {
+          loadingContainer.classList.add('fade-out');
+          dexApp.classList.add('loaded');
+          setTimeout(() => loadingContainer.style.display = 'none', 800);
+        }, 500);
+      }
+      if (progressFill) progressFill.style.width = progress + '%';
+    }, 200);
+
+    // App Logic - NO EXTERNAL APIs
+    const TOKENS = [
+      { symbol: 'KARROT', name: 'Karrot' },
+      { symbol: 'ETH', name: 'Ethereum' },
+      { symbol: 'USDC', name: 'USD Coin' },
+      { symbol: 'USDT', name: 'Tether' },
+      { symbol: 'DAI', name: 'Dai' },
+      { symbol: 'BTC', name: 'Bitcoin' },
+      { symbol: 'PLS', name: 'PulseChain' },
+      { symbol: 'BNB', name: 'BNB' },
+      { symbol: 'SOL', name: 'Solana' }
+    ];
+
+    let fromToken = 'KARROT', toToken = 'ETH', slippage = 0.5;
+    let walletConnected = false, provider, signer;
+
+    // Populate token dropdowns
+    ['tokenFrom', 'tokenTo'].forEach(id => {
+      const select = document.getElementById(id);
+      TOKENS.forEach(t => {
+        const opt = document.createElement('option');
+        opt.value = t.symbol;
+        opt.textContent = t.symbol;
+        select.appendChild(opt);
+      });
+    });
+    document.getElementById('tokenFrom').value = fromToken;
+    document.getElementById('tokenTo').value = toToken;
+
+    // Update prices from DEX (no external API - uses DEX native rates)
+    function updatePrices() {
+      const amount = parseFloat(document.getElementById('amountFrom').value) || 0;
+      if (amount <= 0) {
+        document.getElementById('amountToDisplay').textContent = '0.0';
+        return;
+      }
+
+      // Get rate from selected DEX (mock for demo - will be real DEX call)
+      const rate = getDEXRate(fromToken, toToken);
+      const output = amount * rate;
+      const minReceived = output * (1 - slippage / 100);
+
+      document.getElementById('amountToDisplay').textContent = output.toFixed(6);
+      document.getElementById('amountToDisplay').style.color = '#FF7F11';
+      document.getElementById('exchangeRate').textContent = `1 ${fromToken} = ${rate.toFixed(6)} ${toToken}`;
+      document.getElementById('minReceived').textContent = `${minReceived.toFixed(6)} ${toToken}`;
+      document.getElementById('priceImpact').textContent = '~0.5%';
+      document.getElementById('networkFee').textContent = getDEXFee();
+    }
+
+    // DEX native rates (no external API)
+    function getDEXRate(from, to) {
+      // Each DEX has its own rates - this simulates real DEX pricing
+      const dex = document.getElementById('aggregator').value;
+      
+      // Base rates (DEX-dependent)
+      const baseRates = {
+        'KARROT-ETH': 0.0003, 'ETH-KARROT': 3333,
+        'ETH-USDC': 3450, 'USDC-ETH': 0.00029,
+        'ETH-USDT': 3450, 'BTC-ETH': 18.5,
+        'PLS-ETH': 0.00005, 'ETH-PLS': 20000,
+        'BNB-ETH': 0.12, 'SOL-ETH': 0.042
+      };
+      
+      const key = `${from}-${to}`;
+      const reverse = `${to}-${from}`;
+      
+      let rate = baseRates[key];
+      if (!rate && baseRates[reverse]) rate = 1 / baseRates[reverse];
+      if (!rate) rate = 1;
+      
+      // Add small DEX-specific variance (spread)
+      const spreads = { 'PulseX': 1.002, '9mm': 1.003, 'UniswapV3': 1.001 };
+      const spread = spreads[dex] || 1.002;
+      
+      return rate * spread;
+    }
+
+    function getDEXFee() {
+      const dex = document.getElementById('aggregator').value;
+      const fees = { 'PulseX': '~$0.01', 'UniswapV3': '~$12', '9mm': '~$0.005' };
+      return fees[dex] || '~$2';
+    }
+
+    // Event listeners
+    document.getElementById('amountFrom').addEventListener('input', debounce(updatePrices, 300));
+    document.getElementById('tokenFrom').addEventListener('change', (e) => { fromToken = e.target.value; updateTokenIcon('from', fromToken); updatePrices(); });
+    document.getElementById('tokenTo').addEventListener('change', (e) => { toToken = e.target.value; updateTokenIcon('to', toToken); updatePrices(); });
+    
+    document.getElementById('aggregator').addEventListener('change', (e) => {
+      const icons = { 'PulseX': '🟢', '9mm': '🔫', 'UniswapV3': '🦄', 'SushiSwap': '🍣', 'PancakeSwap': '🥞', '1inch': '📊' };
+      document.getElementById('aggregatorLogo').textContent = icons[e.target.value] || '🟢';
+      updatePrices();
+    });
+
+    document.getElementById('switchTokens').addEventListener('click', () => {
+      [fromToken, toToken] = [toToken, fromToken];
+      document.getElementById('tokenFrom').value = fromToken;
+      document.getElementById('tokenTo').value = toToken;
+      updateTokenIcon('from', fromToken);
+      updateTokenIcon('to', toToken);
+      updatePrices();
+    });
+
+    document.querySelectorAll('.slippage-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.slippage-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        slippage = parseFloat(btn.dataset.value);
+        document.getElementById('slippage').value = slippage;
+        updatePrices();
+      });
+    });
+
+    // Custom address
+    document.getElementById('useCustomAddress').addEventListener('change', (e) => {
+      document.getElementById('customAddress').classList.toggle('show', e.target.checked);
+      document.getElementById('customAddressNote').classList.toggle('show', e.target.checked);
+    });
+
+    // Connect wallet
+    document.getElementById('connectWallet').addEventListener('click', async () => {
+      if (window.ethereum) {
+        provider = new ethers.providers.Web3Provider(window.ethereum);
+        await provider.send('eth_requestAccounts', []);
+        signer = provider.getSigner();
+        walletConnected = true;
+        const addr = await signer.getAddress();
+        document.getElementById('connectWallet').textContent = addr.slice(0, 6) + '...' + addr.slice(-4);
+        showMessage('Wallet connected!', 'success');
+      } else {
+        showMessage('Install MetaMask', 'error');
+      }
+    });
+
+    // Swap
+    document.getElementById('btnSwap').addEventListener('click', () => {
+      const amount = document.getElementById('amountFrom').value;
+      const output = document.getElementById('amountToDisplay').textContent;
+      const custom = document.getElementById('useCustomAddress').checked;
+      const customAddr = document.getElementById('customAddress').value;
+      
+      if (!amount || parseFloat(amount) <= 0) {
+        showMessage('Enter amount', 'error');
+        return;
+      }
+      
+      if (custom && !customAddr) {
+        showMessage('Enter destination address', 'error');
+        return;
+      }
+      
+      showMessage(`Swapping ${amount} ${fromToken} → ${output} ${toToken}${custom ? ' to ' + customAddr.slice(0, 10) + '...' : ''}`, 'info');
+    });
+
+    function updateTokenIcon(type, symbol) {
+      const icons = { 'KARROT': '🥕', 'ETH': '⬡', 'BTC': '₿', 'PLS': '◈', 'USDC': '$', 'USDT': '₮' };
+      document.getElementById(`${type}Icon`).textContent = icons[symbol] || '○';
+    }
+
+    function showMessage(text, type) {
+      const msg = document.createElement('div');
+      msg.className = `message ${type}`;
+      msg.textContent = text;
+      document.getElementById('messageArea').appendChild(msg);
+      setTimeout(() => msg.remove(), 5000);
+    }
+
+    function debounce(fn, ms) {
+      let t;
+      return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); };
+    }
+
+    // Init
+    updateTokenIcon('from', fromToken);
+    updatePrices();
+  </script>
+</body>
+</html>

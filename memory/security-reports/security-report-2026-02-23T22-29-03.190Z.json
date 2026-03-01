@@ -1,0 +1,151 @@
+{
+  "timestamp": "2026-02-23T22:29:03.190Z",
+  "hour": 18,
+  "testsRun": 11,
+  "vulnerabilitiesFound": 1,
+  "passRate": "90.91",
+  "tests": [
+    {
+      "timestamp": "2026-02-23T22:29:03.196Z",
+      "vector": "REBASE_TOKEN_DRIFT",
+      "name": "REBASE_TOKEN_DRIFT",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1823
+    },
+    {
+      "timestamp": "2026-02-23T22:29:03.200Z",
+      "vector": "PRECISION_LOSS",
+      "name": "PRECISION_LOSS",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1824
+    },
+    {
+      "timestamp": "2026-02-23T22:29:03.200Z",
+      "vector": "BRIDGE_TIMELock_BYPASS",
+      "name": "BRIDGE_TIMELock_BYPASS",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1825
+    },
+    {
+      "timestamp": "2026-02-23T22:29:03.200Z",
+      "vector": "ERC777_HOOK_EXPLOIT",
+      "name": "ERC777_HOOK_EXPLOIT",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1826
+    },
+    {
+      "timestamp": "2026-02-23T22:29:03.200Z",
+      "vector": "STORAGE_COLLISION_UPGRADE",
+      "name": "Proxy Storage Collision",
+      "severity": "CRITICAL",
+      "description": "Upgradeable proxy has storage collision vulnerability",
+      "discovered": false,
+      "testCode": "// Storage layout test",
+      "mitigation": "EIP-1967 storage slots, transparent proxies",
+      "runId": 1827
+    },
+    {
+      "timestamp": "2026-02-23T22:29:03.200Z",
+      "vector": "FLASH_LOAN_SANDWICH_ATTACK",
+      "name": "FLASH_LOAN_SANDWICH_ATTACK",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1828
+    },
+    {
+      "timestamp": "2026-02-23T22:29:03.200Z",
+      "vector": "REENTRANCY_SINGLE_CALL",
+      "name": "Single-Call Reentrancy",
+      "severity": "CRITICAL",
+      "description": "Attacker re-enters contract during external call before state update",
+      "discovered": false,
+      "testCode": "\n      const attacker = await deployAttackerContract();\n      await attacker.attack({value: 1 ether});\n      const finalBalance = await victim.balanceOf(attacker);\n      expect(finalBalance).to.be.above(expectedBalance);\n    ",
+      "mitigation": "Use ReentrancyGuard or check-effects-interactions pattern",
+      "runId": 1829
+    },
+    {
+      "timestamp": "2026-02-23T22:29:03.200Z",
+      "vector": "SIGNATURE_INVALID_RECOVERY",
+      "name": "SIGNATURE_INVALID_RECOVERY",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1830
+    },
+    {
+      "timestamp": "2026-02-23T22:29:03.200Z",
+      "vector": "FEE_ON_TRANSFER_DOUBLE_SPEND",
+      "name": "Fee-on-Transfer Double Spend",
+      "severity": "MEDIUM",
+      "description": "Contract fails to account for transfer fees",
+      "discovered": false,
+      "testCode": "// Fee-on-transfer test",
+      "mitigation": "Check balances before/after transfers",
+      "runId": 1831
+    },
+    {
+      "timestamp": "2026-02-23T22:29:03.200Z",
+      "vector": "PROXY_DELEGATECALL_ATTACK",
+      "name": "PROXY_DELEGATECALL_ATTACK",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1832
+    },
+    {
+      "timestamp": "2026-02-23T22:29:03.200Z",
+      "vector": "UNAUTHORIZED_PAUSE",
+      "name": "UNAUTHORIZED_PAUSE",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1833
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "timestamp": "2026-02-23T22:29:03.200Z",
+      "vector": "UNAUTHORIZED_PAUSE",
+      "name": "UNAUTHORIZED_PAUSE",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1833
+    }
+  ],
+  "contractsTested": [
+    "KarrotDexAggregator_v4.sol",
+    "KarrotProtocol.sol",
+    "pxAssetMinter.sol",
+    "SolanaVault.rs"
+  ],
+  "attackVectors": 42,
+  "notes": "Automated security testing in progress. Manual review required for all \"discovered\" vulnerabilities."
+}

@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KarrotDEX — Swap Any Token</title>
+  
+  <!-- Ethers.js -->
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body { 
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #0a0a0a;
+      color: #FF7F11;
+      min-height: 100vh;
+    }
+    
+    /* Loading Screen */
+    #loading-container {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      z-index: 1000;
+      transition: opacity 0.8s ease-out;
+    }
+    #loading-container.fade-out { opacity: 0; pointer-events: none; }
+    
+    #loading-text {
+      position: absolute; bottom: 18%; text-align: center;
+      color: #FF7F11; z-index: 10;
+      text-shadow: 0 0 30px rgba(255, 127, 17, 0.8);
+    }
+    
+    #loading-text h1 {
+      font-size: 2.5rem; font-weight: 700; letter-spacing: 0.2em;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    
+    .subtitle { font-size: 0.9rem; color: #FFB84C; opacity: 0.8; letter-spacing: 0.15em; }
+    
+    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; } }
+    
+    #progress-bar {
+      position: absolute; bottom: 12%; width: 250px; height: 4px;
+      background: rgba(255, 127, 17, 0.15); border-radius: 2px; overflow: hidden;
+    }
+    
+    #progress-fill {
+      height: 100%; width: 0%;
+      background: linear-gradient(90deg, #FF7F11, #FFB84C);
+      box-shadow: 0 0 20px #FF7F11;
+      transition: width 0.3s ease;
+    }
+    
+    canvas { display: block; position: absolute; top: 0; left: 0; z-index: 1; }
+    
+    /* Main App */
+    #dex-app { opacity: 0; transition: opacity 0.5s ease-in;
+      padding: 20px; max-width: 480px; margin: 0 auto; }
+    #dex-app.loaded { opacity: 1; }
+    
+    header { display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 0; margin-bottom: 2rem; }
+    
+    .logo { display: flex; align-items: center; gap: 0.5rem;
+      font-size: 1.5rem; font-weight: 700; }
+    .logo-icon { font-size: 2rem; }
+    
+    #connectWallet {
+      background: linear-gradient(135deg, #FF7F11 0%, #FFB84C 100%);
+      color: #000; border: none; padding: 0.75rem 1.5rem;
+      border-radius: 12px; font-weight: 600; font-size: 0.9rem;
+      cursor: pointer; transition: transform 0.2s, opacity 0.2s;
+    }
+    #connectWallet:hover { transform: translateY(-2px); opacity: 0.9; }
+    
+    .card { background: linear-gradient(145deg, #151515 0%, #0d0d0d 100%);
+      border: 1px solid #2a2a2a; border-radius: 20px; padding: 1.5rem; margin-bottom: 1rem; }
+    .card:hover { border-color: #FF7F11; }
+    
+    .dex-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+    
+    #aggregatorLogo {
+      width: 40px; height: 40px; border-radius: 50%; border: 2px solid #FF7F11;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; background: rgba(255, 127, 17, 0.1);
+    }
+    
+    #aggregatorInfo { font-size: 0.85rem; opacity: 0.8; margin-top: 0.5rem; }
+    
+    select { width: 100%; padding: 0.75rem; background: #1a1a1a;
+      border: 1px solid #333; border-radius: 10px; color: #FF7F11;
+      font-size: 0.9rem; cursor: pointer; }
+    select:hover, select:focus { border-color: #FF7F11; outline: none; }
+    
+    optgroup { background: #1a1a1a; color: #FF7F11; }
+    option { background: #1a1a1a; color: #FF7F11; }
+    
+    .swap-box { background: #1a1a1a; border: 1px solid #333;
+      border-radius: 16px; padding: 1rem; margin-bottom: 0.5rem; }
+    
+    .swap-box-header { display: flex; justify-content: space-between;
+      margin-bottom: 0.5rem; font-size: 0.85rem; opacity: 0.8; }
+    
+    .swap-input-row { display: flex; align-items: center; gap: 0.5rem; }
+    
+    .amount-input {
+      flex: 1; background: transparent; border: none;
+      color: #FF7F11; font-size: 1.75rem; font-weight: 600;
+      outline: none; width: 100%;
+    }
+    .amount-input::placeholder { color: #555; }
+    
+    .token-select-btn { display: flex; align-items: center; gap: 0.5rem;
+      background: #2a2a2a; border: 1px solid #333; border-radius: 12px;
+      padding: 0.5rem 0.75rem; color: #FF7F11; font-weight: 600;
+      cursor: pointer; transition: all 0.2s; }
+    .token-select-btn:hover { border-color: #FF7F11; }
+    
+    .switch-container { display: flex; justify-content: center;
+      margin: -0.5rem 0; position: relative; z-index: 10; }
+    
+    #switchTokens { background: #1a1a1a; border: 2px solid #FF7F11;
+      border-radius: 50%; width: 44px; height: 44px; display: flex;
+      align-items: center; justify-content: center; font-size: 1.2rem;
+      color: #FF7F11; cursor: pointer; transition: all 0.3s ease; }
+    #switchTokens:hover { background: #FF7F11; color: #000; transform: rotate(180deg); }
+    
+    .price-info { background: #1a1a1a; border-radius: 12px;
+      padding: 1rem; margin: 1rem 0; }
+    .price-row { display: flex; justify-content: space-between;
+      padding: 0.5rem 0; border-bottom: 1px solid #2a2a2a; font-size: 0.85rem; }
+    .price-row:last-child { border-bottom: none; }
+    .price-label { opacity: 0.7; }
+    .price-value { font-weight: 600; }
+    
+    .slippage-container { margin: 1rem 0; }
+    .slippage-label { font-size: 0.85rem; margin-bottom: 0.5rem; opacity: 0.8; }
+    .slippage-buttons { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .slippage-btn { background: #2a2a2a; border: 1px solid #333;
+      border-radius: 8px; padding: 0.5rem 1rem; color: #FF7F11; cursor: pointer; }
+    .slippage-btn:hover, .slippage-btn.active { background: #FF7F11;
+      border-color: #FF7F11; color: #000; }
+    #slippage { width: 80px; padding: 0.5rem; background: #2a2a2a;
+      border: 1px solid #333; border-radius: 8px; color: #FF7F11; text-align: center; }
+    
+    /* Custom Address */
+    .custom-address-box { background: #1a1a1a; border: 1px solid #333;
+      border-radius: 12px; padding: 1rem; margin: 1rem 0; }
+    .custom-address-toggle { display: flex; align-items: center; gap: 0.5rem;
+      cursor: pointer; margin-bottom: 0.5rem; }
+    #useCustomAddress { width: 18px; height: 18px; accent-color: #FF7F11; cursor: pointer; }
+    #customAddress { width: 100%; padding: 0.75rem; background: #0a0a0a;
+      border: 1px solid #333; border-radius: 8px; color: #FF7F11;
+      margin-top: 0.5rem; display: none; }
+    #customAddress.show { display: block; border-color: #FF7F11; }
+    #customAddressNote { font-size: 0.75rem; opacity: 0.7; margin-top: 0.5rem; display: none; }
+    #customAddressNote.show { display: block; }
+    
+    #messageArea { margin: 1rem 0; }
+    
+    #btnSwap { width: 100%; padding: 1.25rem;
+      background: linear-gradient(135deg, #FF7F11 0%, #FFB84C 100%);
+      border: none; border-radius: 16px; color: #000;
+      font-size: 1.25rem; font-weight: 700; cursor: pointer;
+      transition: all 0.2s; margin-top: 1rem; }
+    #btnSwap:hover:not(:disabled) { transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(255, 127, 17, 0.3); }
+    #btnSwap:disabled { opacity: 0.5; cursor: not-allowed; }
+    
+    @media (max-width: 480px) {
+      #dex-app { padding: 10px; }
+      .amount-input { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loading-container">
+    <div id="loading-text">
+      <h1>🥕 KARROT DEX</h1>
+      <div class="subtitle">LOADING TRADING INTERFACE</div>
+    </div>
+    <div id="progress-bar">
+      <div id="progress-fill"></div>
+    </div>
+  </div>
+
+  <!-- Main App -->
+  <div id="dex-app">
+    <header>
+      <div class="logo">
+        <span class="logo-icon">🥕</span>
+        <span>KarrotDEX</span>
+      </div>
+      <button id="connectWallet">Connect Wallet</button>
+    </header>
+
+    <!-- DEX Selector -->
+    <div class="card">
+      <div class="dex-header">
+        <div id="aggregatorLogo">🟢</div>
+        <div>
+          <label style="font-weight: 600; display: block; margin-bottom: 0.25rem;">Select DEX</label>
+          <select id="aggregator">
+            <optgroup label="PulseChain DEXs">
+              <option value="PulseX">🟢 PulseX V2</option>
+              <option value="9mm">🔫 9mm</option>
+              <option value="Piteas">🥧 Piteas</option>
+              <option value="PulseXV3">🟢 PulseX V3</option>
+            </optgroup>
+            <optgroup label="Ethereum DEXs">
+              <option value="UniswapV3">🦄 Uniswap V3</option>
+              <option value="SushiSwap">🍣 SushiSwap</option>
+            </optgroup>
+            <optgroup label="BSC DEXs">
+              <option value="PancakeSwap">🥞 PancakeSwap V2</option>
+              <option value="PancakeSwapV3">🥞 PancakeSwap V3</option>
+            </optgroup>
+            <optgroup label="Meta-Aggregators">
+              <option value="1inch">📊 1inch</option>
+              <option value="Matcha">🍵 Matcha (0x)</option>
+            </optgroup>
+            <optgroup label="Cross-Chain">
+              <option value="THORChain">⚡ THORChain</option>
+              <option value="LibertySwap">🗽 LibertySwap</option>
+            </optgroup>
+            <optgroup label="Privacy">
+              <option value="Railgun">🔒 Railgun</option>
+              <option value="ProveX">🛡️ ProveX</option>
+            </optgroup>
+            <optgroup label="Solana">
+              <option value="Jupiter">🪐 Jupiter</option>
+              <option value="Raydium">☀️ Raydium</option>
+            </optgroup>
+          </select>
+        </div>
+      </div>
+      <div id="aggregatorInfo">PulseX — Chain ID: 369</div>
+    </div>
+
+    <!-- Swap Card -->
+    <div class="card">
+      <!-- From Token -->
+      <div class="swap-box">
+        <div class="swap-box-header">
+          <span>From</span>
+          <span id="balanceFrom">Balance: --</span>
+        </div>
+        <div class="swap-input-row">
+          <input type="number" id="amountFrom" class="amount-input" placeholder="0.0" step="any" min="0">
+          <div class="token-select-btn">
+            <div id="fromIcon">🥕</div>
+            <select id="tokenFrom" style="background: transparent; border: none; color: #FF7F11; font-weight: 600;">
+              <option value="">Select token</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Switch Button -->
+      <div class="switch-container">
+        <button id="switchTokens">⇅</button>
+      </div>
+
+      <!-- To Token -->
+      <div class="swap-box">
+        <div class="swap-box-header">
+          <span>To</span>
+          <span id="balanceTo">Balance: --</span>
+        </div>
+        <div class="swap-input-row">
+          <div id="amountToDisplay" class="amount-input" style="color: #888;">0.0</div>
+          <div class="token-select-btn">
+            <div id="toIcon">
+              <img src="https://cryptologos.cc/logos/pulsechain-pulse-logo.png" style="width: 28px; height: 28px; border-radius: 50%;">
+            </div>
+            <select id="tokenTo" style="background: transparent; border: none; color: #FF7F11; font-weight: 600;">
+              <option value="">Select token</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Price Info -->
+      <div class="price-info">
+        <div class="price-row">
+          <span class="price-label">Exchange Rate</span>
+          <span id="exchangeRate" class="price-value">--</span>
+        </div>
+        <div class="price-row">
+          <span class="price-label">Price Impact</span>
+          <span id="priceImpact" class="price-value">--</span>
+        </div>
+        <div class="price-row">
+          <span class="price-label">Minimum Received</span>
+          <span id="minReceived" class="price-value">--</span>
+        </div>
+        <div class="price-row">
+          <span class="price-label">Network Fee</span>
+          <span id="networkFee" class="price-value">--</span>
+        </div>
+      </div>
+
+      <!-- Slippage -->
+      <div class="slippage-container">
+        <div class="slippage-label">Slippage Tolerance</div>
+        <div class="slippage-buttons">
+          <button class="slippage-btn" data-value="0.1">0.1%</button>
+          <button class="slippage-btn active" data-value="0.5">0.5%</button>
+          <button class="slippage-btn" data-value="1">1.0%</button>
+          <input type="number" id="slippage" value="0.5" min="0.1" max="50" step="0.1">
+        </div>
+      </div>
+
+      <!-- Custom Address -->
+      <div class="custom-address-box">
+        <label class="custom-address-toggle">
+          <input type="checkbox" id="useCustomAddress">
+          <span>Send to different address</span>
+        </label>
+        <input type="text" id="customAddress" placeholder="Enter destination address (0x...)">
+        <p id="customAddressNote">Supports: Ethereum (0x...), Bitcoin, Solana, THORChain</p>
+      </div>
+
+      <div id="messageArea"></div>
+
+      <button id="btnSwap">
+        <span id="swapBtnText">Swap</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Loading Animation -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+  
+  <script>
+    /* Karrot Cube Loading Animation */
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.z = 8;
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.outputEncoding = THREE.sRGBEncoding;
+    document.getElementById('loading-container').appendChild(renderer.domElement);
+
+    scene.add(new THREE.AmbientLight(0xffffff, 0.8));
+    const directional = new THREE.DirectionalLight(0xffffff, 1.5);
+    directional.position.set(5, 7, 5);
+    scene.add(directional);
+
+    const loader = new THREE.TextureLoader();
+    const textureURL = "https://i.postimg.cc/cHjv2726/20250919-172530.jpg";
+    
+    let wallCube, edges, carrotGroup;
+    let isAnimating = true;
+
+    loader.load(textureURL, (texture) => {
+      texture.encoding = THREE.sRGBEncoding;
+
+      const cubeSize = 4;
+      const cubeGeo = new THREE.BoxGeometry(cubeSize, cubeSize, cubeSize);
+      const wallMaterial = new THREE.MeshStandardMaterial({
+        map: texture, emissive: new THREE.Color(0xff6600), emissiveIntensity: 1.2,
+        side: THREE.BackSide, transparent: true, opacity: 1
+      });
+
+      wallCube = new THREE.Mesh(cubeGeo, wallMaterial);
+      scene.add(wallCube);
+
+      const edgesGeo = new THREE.EdgesGeometry(cubeGeo);
+      const edgesMat = new THREE.LineBasicMaterial({
+        color: 0xc96500, transparent: true, blending: THREE.AdditiveBlending, opacity: 1
+      });
+      edges = new THREE.LineSegments(edgesGeo, edgesMat);
+      edges.position.copy(wallCube.position);
+      scene.add(edges);
+
+      // Carrot
+      function createCarrotTexture() {
+        const size = 256;
+        const canvas = document.createElement('canvas');
+        canvas.width = size; canvas.height = size;
+        const ctx = canvas.getContext('2d');
+        const gradient = ctx.createLinearGradient(0, 0, 0, size);
+        gradient.addColorStop(0, '#FF8A1C'); gradient.addColorStop(1, '#c96500');
+        ctx.fillStyle = gradient; ctx.fillRect(0, 0, size, size);
+        for (let i = 0; i < 1500; i++) {
+          const x = Math.random() * size; const y = Math.random() * size;
+          const r = Math.random() * 1.7; const a = 0.03 + Math.random() * 0.12;
+          ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255,255,255,${a})`; ctx.fill();
+        }
+        ctx.strokeStyle = 'rgba(255,220,180,0.25)'; ctx.lineWidth = 6;
+        for (let i = 20; i < size; i += 30) {
+          ctx.beginPath(); ctx.moveTo(i, 0); ctx.lineTo(i - 50, size); ctx.stroke();
+        }
+        return new THREE.CanvasTexture(canvas);
+      }
+
+      const carrotPoints = [
+        new THREE.Vector2(0.05, 0), new THREE.Vector2(0.08, 0.1), new THREE.Vector2(0.12, 0.25),
+        new THREE.Vector2(0.18, 0.45), new THREE.Vector2(0.22, 0.7), new THREE.Vector2(0.25, 1.0),
+        new THREE.Vector2(0.28, 1.3), new THREE.Vector2(0.3, 1.5), new THREE.Vector2(0.25, 1.6),
+        new THREE.Vector2(0.22, 1.65), new THREE.Vector2(0.18, 1.7)
+      ];
+      const carrotGeo = new THREE.LatheGeometry(carrotPoints, 64);
+      const carrotMat = new THREE.MeshStandardMaterial({
+        map: createCarrotTexture(), emissive: new THREE.Color(0xff6a00),
+        emissiveIntensity: 1.1, metalness: 0.5, roughness: 0.4
+      });
+      const carrot = new THREE.Mesh(carrotGeo, carrotMat);
+      carrot.castShadow = true;
+
+      const stemHeight = 0.4;
+      const stemGeo = new THREE.CylinderGeometry(0.15, 0.15, stemHeight, 16);
+      const stemMat = new THREE.MeshStandardMaterial({
+        color: 0x4caf50, emissive: 0x2e7d32, emissiveIntensity: 1.2
+      });
+      const stem = new THREE.Mesh(stemGeo, stemMat);
+      stem.castShadow = true;
+
+      carrot.position.y = 0.05;
+      stem.position.y = carrot.position.y + 1.7 - (stemHeight / 2);
+
+      const leafGroup = new THREE.Group();
+
+      function createLeafBranch(angle, scale) {
+        const group = new THREE.Group();
+        const curve = new THREE.CatmullRomCurve3([
+          new THREE.Vector3(0, 0, 0), new THREE.Vector3(0.05 * scale, 0.3 * scale, 0),
+          new THREE.Vector3(0.03 * scale, 0.5 * scale, 0.02 * scale), new THREE.Vector3(0, 0.7 * scale, 0)
+        ]);
+        const leafMat = new THREE.MeshStandardMaterial({
+          color: 0x66bb6a, emissive: 0x388e3c, emissiveIntensity: 1.1,
+          side: THREE.DoubleSide, transparent: true, opacity: 0.95
+        });
+        const tube = new THREE.TubeGeometry(curve, 20, 0.03 * scale, 6, false);
+        const mainLeaf = new THREE.Mesh(tube, leafMat);
+        group.add(mainLeaf);
+
+        for (let t = 0.3; t < 0.8; t += 0.2) {
+          const pt = curve.getPointAt(t);
+          const subGeo = new THREE.PlaneGeometry(0.2 * scale, 0.04 * scale);
+          const mesh1 = new THREE.Mesh(subGeo, leafMat);
+          mesh1.position.copy(pt); mesh1.rotation.y = angle + Math.PI / 4;
+          mesh1.rotation.z = (Math.random() - 0.5) * 0.3;
+          group.add(mesh1);
+          const mesh2 = mesh1.clone();
+          mesh2.rotation.y = angle - Math.PI / 4;
+          group.add(mesh2);
+        }
+        group.rotation.y = angle;
+        group.position.y = stem.position.y + stemHeight / 2;
+        return group;
+      }
+
+      for (let i = 0; i < 10; i++) {
+        const angle = (i / 10) * Math.PI * 2;
+        const scale = 1 + Math.random() * 0.5;
+        leafGroup.add(createLeafBranch(angle, scale));
+      }
+
+      carrotGroup = new THREE.Group();
+      carrotGroup.add(carrot); carrotGroup.add(stem); carrotGroup.add(leafGroup);
+      scene.add(carrotGroup);
+
+      const bbox = new THREE.Box3().setFromObject(carrotGroup);
+      const center = new THREE.Vector3();
+      bbox.getCenter(center);
+      carrotGroup.position.sub(center);
+      carrotGroup.position.y += 0.2;
+
+      const clock = new THREE.Clock();
+      function animate() {
+        if (!isAnimating) return;
+        requestAnimationFrame(animate);
+        const t = clock.getElapsedTime();
+        wallCube.rotation.y = t * 0.5;
+        edges.rotation.y = t * 0.5;
+        carrotGroup.rotation.y = t * 1.2;
+        renderer.render(scene, camera);
+      }
+      animate();
+    });
+
+    window.addEventListener("resize", () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    // Loading progress
+    const progressFill = document.getElementById('progress-fill');
+    const loadingContainer = document.getElementById('loading-container');
+    const dexApp = document.getElementById('dex-app');
+
+    let progress = 0;
+    const loadingInterval = setInterval(() => {
+      progress += Math.random() * 15 + 5;
+      if (progress >= 100) {
+        progress = 100;
+        clearInterval(loadingInterval);
+        setTimeout(() => {
+          loadingContainer.classList.add('fade-out');
+          dexApp.classList.add('loaded');
+          isAnimating = false;
+          setTimeout(() => { loadingContainer.style.display = 'none'; }, 800);
+        }, 500);
+      }
+      progressFill.style.width = progress + '%';
+    }, 200);
+  </script>
+
+  <!-- App Script -->
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,239 @@
+{
+  "timestamp": "2026-02-21T21:15:22.825Z",
+  "hour": 17,
+  "testsRun": 18,
+  "vulnerabilitiesFound": 2,
+  "passRate": "88.89",
+  "tests": [
+    {
+      "timestamp": "2026-02-21T21:15:22.831Z",
+      "vector": "STORAGE_COLLISION_UPGRADE",
+      "name": "Proxy Storage Collision",
+      "severity": "CRITICAL",
+      "description": "Upgradeable proxy has storage collision vulnerability",
+      "discovered": false,
+      "testCode": "// Storage layout test",
+      "mitigation": "EIP-1967 storage slots, transparent proxies",
+      "runId": 1721
+    },
+    {
+      "timestamp": "2026-02-21T21:15:22.836Z",
+      "vector": "REENTRANCY_CROSS_FUNCTION",
+      "name": "Cross-Function Reentrancy",
+      "severity": "CRITICAL",
+      "description": "Attacker exploits state shared between functions",
+      "discovered": false,
+      "testCode": "// Reentrancy cross-function test logic",
+      "mitigation": "Mutex locks, ReentrancyGuard",
+      "runId": 1722
+    },
+    {
+      "timestamp": "2026-02-21T21:15:22.836Z",
+      "vector": "REENTRANCY_READ_ONLY",
+      "name": "REENTRANCY_READ_ONLY",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1723
+    },
+    {
+      "timestamp": "2026-02-21T21:15:22.836Z",
+      "vector": "ERC777_HOOK_EXPLOIT",
+      "name": "ERC777_HOOK_EXPLOIT",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1724
+    },
+    {
+      "timestamp": "2026-02-21T21:15:22.836Z",
+      "vector": "GAS_LIMIT_MANIPULATION",
+      "name": "GAS_LIMIT_MANIPULATION",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1725
+    },
+    {
+      "timestamp": "2026-02-21T21:15:22.836Z",
+      "vector": "BRIDGE_SIGNATURE_REPLAY",
+      "name": "BRIDGE_SIGNATURE_REPLAY",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1726
+    },
+    {
+      "timestamp": "2026-02-21T21:15:22.836Z",
+      "vector": "SIGNATURE_INVALID_RECOVERY",
+      "name": "SIGNATURE_INVALID_RECOVERY",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1727
+    },
+    {
+      "timestamp": "2026-02-21T21:15:22.836Z",
+      "vector": "STORAGE_COLLISION_UPGRADE",
+      "name": "Proxy Storage Collision",
+      "severity": "CRITICAL",
+      "description": "Upgradeable proxy has storage collision vulnerability",
+      "discovered": false,
+      "testCode": "// Storage layout test",
+      "mitigation": "EIP-1967 storage slots, transparent proxies",
+      "runId": 1728
+    },
+    {
+      "timestamp": "2026-02-21T21:15:22.836Z",
+      "vector": "BRIDGE_TIMELock_BYPASS",
+      "name": "BRIDGE_TIMELock_BYPASS",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1729
+    },
+    {
+      "timestamp": "2026-02-21T21:15:22.836Z",
+      "vector": "GAS_LIMIT_MANIPULATION",
+      "name": "GAS_LIMIT_MANIPULATION",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1730
+    },
+    {
+      "timestamp": "2026-02-21T21:15:22.836Z",
+      "vector": "REENTRANCY_CROSS_CONTRACT",
+      "name": "REENTRANCY_CROSS_CONTRACT",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1731
+    },
+    {
+      "timestamp": "2026-02-21T21:15:22.836Z",
+      "vector": "DEPEG_MANIPULATION",
+      "name": "DEPEG_MANIPULATION",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1732
+    },
+    {
+      "timestamp": "2026-02-21T21:15:22.836Z",
+      "vector": "REENTRANCY_READ_ONLY",
+      "name": "REENTRANCY_READ_ONLY",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1733
+    },
+    {
+      "timestamp": "2026-02-21T21:15:22.836Z",
+      "vector": "DUST_ATTACK_SPAM",
+      "name": "Dust Attack Spam",
+      "severity": "LOW",
+      "description": "Attacker sends dust amounts to spam orderbook",
+      "discovered": false,
+      "testCode": "// Dust amount test",
+      "mitigation": "Minimum order thresholds",
+      "runId": 1734
+    },
+    {
+      "timestamp": "2026-02-21T21:15:22.836Z",
+      "vector": "ORACLE_FRONT_RUNNING",
+      "name": "ORACLE_FRONT_RUNNING",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1735
+    },
+    {
+      "timestamp": "2026-02-21T21:15:22.836Z",
+      "vector": "STORAGE_COLLISION_UPGRADE",
+      "name": "Proxy Storage Collision",
+      "severity": "CRITICAL",
+      "description": "Upgradeable proxy has storage collision vulnerability",
+      "discovered": true,
+      "testCode": "// Storage layout test",
+      "mitigation": "EIP-1967 storage slots, transparent proxies",
+      "runId": 1736
+    },
+    {
+      "timestamp": "2026-02-21T21:15:22.836Z",
+      "vector": "STORAGE_SLOT_OVERWRITE",
+      "name": "STORAGE_SLOT_OVERWRITE",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1737
+    },
+    {
+      "timestamp": "2026-02-21T21:15:22.836Z",
+      "vector": "FEE_ON_TRANSFER_DOUBLE_SPEND",
+      "name": "Fee-on-Transfer Double Spend",
+      "severity": "MEDIUM",
+      "description": "Contract fails to account for transfer fees",
+      "discovered": false,
+      "testCode": "// Fee-on-transfer test",
+      "mitigation": "Check balances before/after transfers",
+      "runId": 1738
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "timestamp": "2026-02-21T21:15:22.836Z",
+      "vector": "GAS_LIMIT_MANIPULATION",
+      "name": "GAS_LIMIT_MANIPULATION",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1730
+    },
+    {
+      "timestamp": "2026-02-21T21:15:22.836Z",
+      "vector": "STORAGE_COLLISION_UPGRADE",
+      "name": "Proxy Storage Collision",
+      "severity": "CRITICAL",
+      "description": "Upgradeable proxy has storage collision vulnerability",
+      "discovered": true,
+      "testCode": "// Storage layout test",
+      "mitigation": "EIP-1967 storage slots, transparent proxies",
+      "runId": 1736
+    }
+  ],
+  "contractsTested": [
+    "KarrotDexAggregator_v4.sol",
+    "KarrotProtocol.sol",
+    "pxAssetMinter.sol",
+    "SolanaVault.rs"
+  ],
+  "attackVectors": 42,
+  "notes": "Automated security testing in progress. Manual review required for all \"discovered\" vulnerabilities."
+}

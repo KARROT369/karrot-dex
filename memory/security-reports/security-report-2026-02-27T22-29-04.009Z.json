@@ -1,0 +1,261 @@
+{
+  "timestamp": "2026-02-27T22:29:04.009Z",
+  "hour": 18,
+  "testsRun": 18,
+  "vulnerabilitiesFound": 4,
+  "passRate": "77.78",
+  "tests": [
+    {
+      "timestamp": "2026-02-27T22:29:04.012Z",
+      "vector": "REENTRANCY_CROSS_FUNCTION",
+      "name": "Cross-Function Reentrancy",
+      "severity": "CRITICAL",
+      "description": "Attacker exploits state shared between functions",
+      "discovered": false,
+      "testCode": "// Reentrancy cross-function test logic",
+      "mitigation": "Mutex locks, ReentrancyGuard",
+      "runId": 1827
+    },
+    {
+      "timestamp": "2026-02-27T22:29:04.015Z",
+      "vector": "FLASH_LOAN_OWNERSHIP_THEFT",
+      "name": "FLASH_LOAN_OWNERSHIP_THEFT",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1828
+    },
+    {
+      "timestamp": "2026-02-27T22:29:04.015Z",
+      "vector": "PRECISION_LOSS",
+      "name": "PRECISION_LOSS",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1829
+    },
+    {
+      "timestamp": "2026-02-27T22:29:04.015Z",
+      "vector": "INFLATION_ATTACK",
+      "name": "INFLATION_ATTACK",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1830
+    },
+    {
+      "timestamp": "2026-02-27T22:29:04.015Z",
+      "vector": "MEV_SANDWICH_FRONT_RUN",
+      "name": "MEV_SANDWICH_FRONT_RUN",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1831
+    },
+    {
+      "timestamp": "2026-02-27T22:29:04.015Z",
+      "vector": "SIGNATURE_MALLEABILITY",
+      "name": "SIGNATURE_MALLEABILITY",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1832
+    },
+    {
+      "timestamp": "2026-02-27T22:29:04.015Z",
+      "vector": "BRIDGE_SIGNATURE_REPLAY",
+      "name": "BRIDGE_SIGNATURE_REPLAY",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1833
+    },
+    {
+      "timestamp": "2026-02-27T22:29:04.015Z",
+      "vector": "SIGNATURE_REPLAY",
+      "name": "SIGNATURE_REPLAY",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1834
+    },
+    {
+      "timestamp": "2026-02-27T22:29:04.015Z",
+      "vector": "ARITHMETIC_UNDERFLOW",
+      "name": "ARITHMETIC_UNDERFLOW",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1835
+    },
+    {
+      "timestamp": "2026-02-27T22:29:04.015Z",
+      "vector": "ARITHMETIC_OVERFLOW",
+      "name": "ARITHMETIC_OVERFLOW",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1836
+    },
+    {
+      "timestamp": "2026-02-27T22:29:04.015Z",
+      "vector": "REENTRANCY_READ_ONLY",
+      "name": "REENTRANCY_READ_ONLY",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1837
+    },
+    {
+      "timestamp": "2026-02-27T22:29:04.015Z",
+      "vector": "REENTRANCY_SINGLE_CALL",
+      "name": "Single-Call Reentrancy",
+      "severity": "CRITICAL",
+      "description": "Attacker re-enters contract during external call before state update",
+      "discovered": false,
+      "testCode": "\n      const attacker = await deployAttackerContract();\n      await attacker.attack({value: 1 ether});\n      const finalBalance = await victim.balanceOf(attacker);\n      expect(finalBalance).to.be.above(expectedBalance);\n    ",
+      "mitigation": "Use ReentrancyGuard or check-effects-interactions pattern",
+      "runId": 1838
+    },
+    {
+      "timestamp": "2026-02-27T22:29:04.015Z",
+      "vector": "DIVISION_BY_ZERO",
+      "name": "DIVISION_BY_ZERO",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1839
+    },
+    {
+      "timestamp": "2026-02-27T22:29:04.015Z",
+      "vector": "REENTRANCY_CROSS_FUNCTION",
+      "name": "Cross-Function Reentrancy",
+      "severity": "CRITICAL",
+      "description": "Attacker exploits state shared between functions",
+      "discovered": true,
+      "testCode": "// Reentrancy cross-function test logic",
+      "mitigation": "Mutex locks, ReentrancyGuard",
+      "runId": 1840
+    },
+    {
+      "timestamp": "2026-02-27T22:29:04.015Z",
+      "vector": "REENTRANCY_READ_ONLY",
+      "name": "REENTRANCY_READ_ONLY",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1841
+    },
+    {
+      "timestamp": "2026-02-27T22:29:04.015Z",
+      "vector": "FLASH_LOAN_SANDWICH_ATTACK",
+      "name": "FLASH_LOAN_SANDWICH_ATTACK",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1842
+    },
+    {
+      "timestamp": "2026-02-27T22:29:04.015Z",
+      "vector": "INFLATION_ATTACK",
+      "name": "INFLATION_ATTACK",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1843
+    },
+    {
+      "timestamp": "2026-02-27T22:29:04.015Z",
+      "vector": "ACCESS_CONTROL_BYPASS",
+      "name": "ACCESS_CONTROL_BYPASS",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": false,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1844
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "timestamp": "2026-02-27T22:29:04.015Z",
+      "vector": "BRIDGE_SIGNATURE_REPLAY",
+      "name": "BRIDGE_SIGNATURE_REPLAY",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1833
+    },
+    {
+      "timestamp": "2026-02-27T22:29:04.015Z",
+      "vector": "REENTRANCY_READ_ONLY",
+      "name": "REENTRANCY_READ_ONLY",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1837
+    },
+    {
+      "timestamp": "2026-02-27T22:29:04.015Z",
+      "vector": "REENTRANCY_CROSS_FUNCTION",
+      "name": "Cross-Function Reentrancy",
+      "severity": "CRITICAL",
+      "description": "Attacker exploits state shared between functions",
+      "discovered": true,
+      "testCode": "// Reentrancy cross-function test logic",
+      "mitigation": "Mutex locks, ReentrancyGuard",
+      "runId": 1840
+    },
+    {
+      "timestamp": "2026-02-27T22:29:04.015Z",
+      "vector": "INFLATION_ATTACK",
+      "name": "INFLATION_ATTACK",
+      "severity": "UNKNOWN",
+      "description": "Automated attack simulation",
+      "discovered": true,
+      "testCode": "// Generic attack test",
+      "mitigation": "Review and fix",
+      "runId": 1843
+    }
+  ],
+  "contractsTested": [
+    "KarrotDexAggregator_v4.sol",
+    "KarrotProtocol.sol",
+    "pxAssetMinter.sol",
+    "SolanaVault.rs"
+  ],
+  "attackVectors": 42,
+  "notes": "Automated security testing in progress. Manual review required for all \"discovered\" vulnerabilities."
+}
